@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuariosTable extends Migration
+class CreatePadresTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'usuarios';
+    public $set_schema_table = 'padres';
 
     /**
      * Run the migrations.
-     * @table usuarios
+     * @table padres
      *
      * @return void
      */
@@ -24,16 +24,17 @@ class CreateUsuariosTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('email');
-            $table->text('password');
-            $table->enum('rol', ['REPRESENTATE', 'DOCENTE', 'SECRETARIA', 'ADMINISTRADOR']);
-            $table->text('md5_confirmacion');
-            $table->rememberToken();
+            $table->text('cedula');
+            $table->text('nombre');
+            $table->text('apellido');
+            $table->date('fecha_nacimiento');
+            $table->text('nacionalidad');
+            $table->text('grado_instruccion');
+            $table->text('ocupacion');
+            $table->text('direccion');
+            $table->text('telefono');
+            $table->text('sexo');
             $table->timestamps();
-
-            $table->unique(["email"], 'correo_UNIQUE');
-
-            $table->unique(["md5_confirmacion"], 'md5_confirmacion_UNIQUE');
         });
     }
 

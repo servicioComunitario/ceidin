@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuariosTable extends Migration
+class CreateVacunasTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'usuarios';
+    public $set_schema_table = 'vacunas';
 
     /**
      * Run the migrations.
-     * @table usuarios
+     * @table vacunas
      *
      * @return void
      */
@@ -24,16 +24,17 @@ class CreateUsuariosTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('email');
-            $table->text('password');
-            $table->enum('rol', ['REPRESENTATE', 'DOCENTE', 'SECRETARIA', 'ADMINISTRADOR']);
-            $table->text('md5_confirmacion');
-            $table->rememberToken();
+            $table->text('nombre');
+            $table->integer('antecedentes_medico_id');
             $table->timestamps();
 
-            $table->unique(["email"], 'correo_UNIQUE');
+            $table->index(["antecedentes_medico_id"], 'fk_vacunas_antecedentes_medicos1_idx');
 
-            $table->unique(["md5_confirmacion"], 'md5_confirmacion_UNIQUE');
+
+            $table->foreign('antecedentes_medico_id', 'fk_vacunas_antecedentes_medicos1_idx')
+                ->references('id')->on('antecedentes_medicos')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
         });
     }
 

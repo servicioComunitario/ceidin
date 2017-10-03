@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsuariosTable extends Migration
+class CreateColaboracionesTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'usuarios';
+    public $set_schema_table = 'colaboraciones';
 
     /**
      * Run the migrations.
-     * @table usuarios
+     * @table colaboraciones
      *
      * @return void
      */
@@ -24,16 +24,19 @@ class CreateUsuariosTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('email');
-            $table->text('password');
-            $table->enum('rol', ['REPRESENTATE', 'DOCENTE', 'SECRETARIA', 'ADMINISTRADOR']);
-            $table->text('md5_confirmacion');
-            $table->rememberToken();
+            $table->float('monto');
+            $table->text('motivo');
+            $table->dateTime('fecha');
+            $table->integer('usuario_id');
             $table->timestamps();
 
-            $table->unique(["email"], 'correo_UNIQUE');
+            $table->index(["usuario_id"], 'fk_colaboraciones_usuarios1_idx');
 
-            $table->unique(["md5_confirmacion"], 'md5_confirmacion_UNIQUE');
+
+            $table->foreign('usuario_id', 'fk_colaboraciones_usuarios1_idx')
+                ->references('id')->on('usuarios')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
         });
     }
 
