@@ -36,7 +36,6 @@ class CreateAlumnosTable extends Migration
             $table->integer('antecedentes_familiar_id');
             $table->integer('antecedentes_medico_id');
             $table->integer('otros_dato_id');
-            $table->timestamps();
 
             $table->index(["antecedentes_familiar_id"], 'fk_alumnos_antecedentes_familiares1_idx');
 
@@ -66,6 +65,8 @@ class CreateAlumnosTable extends Migration
                 ->references('id')->on('otros_datos')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+                    
+            $table->timestamps();
         });
     }
 

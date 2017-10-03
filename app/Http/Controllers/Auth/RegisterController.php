@@ -64,6 +64,7 @@ class RegisterController extends Controller
         return Usuario::create([
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'grupo_id' => 5
         ]);
     }
 }

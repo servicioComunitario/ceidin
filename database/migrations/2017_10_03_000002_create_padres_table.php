@@ -34,6 +34,7 @@ class CreatePadresTable extends Migration
             $table->text('direccion');
             $table->text('telefono');
             $table->text('sexo');
+                    
             $table->timestamps();
         });
     }

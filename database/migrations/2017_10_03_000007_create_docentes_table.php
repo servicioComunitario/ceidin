@@ -32,7 +32,6 @@ class CreateDocentesTable extends Migration
             $table->tinyInteger('nivel');
             $table->tinyInteger('cupos');
             $table->integer('periodo_id');
-            $table->timestamps();
 
             $table->index(["periodo_id"], 'fk_docentes_periodos1_idx');
 
@@ -41,6 +40,8 @@ class CreateDocentesTable extends Migration
                 ->references('id')->on('periodos')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+                    
+            $table->timestamps();
         });
     }
 

@@ -41,7 +41,6 @@ class CreateInscripcionesTable extends Migration
             $table->integer('alumno_id');
             $table->integer('usuario_id');
             $table->integer('docente_id');
-            $table->timestamps();
 
             $table->index(["alumno_id"], 'fk_inscripciones_alumnos1_idx');
 
@@ -71,6 +70,8 @@ class CreateInscripcionesTable extends Migration
                 ->references('id')->on('docentes')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+                    
+            $table->timestamps();
         });
     }
 

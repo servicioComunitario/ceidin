@@ -26,14 +26,23 @@ class CreateUsuariosTable extends Migration
             $table->increments('id');
             $table->text('email');
             $table->text('password');
-            $table->enum('rol', ['REPRESENTATE', 'DOCENTE', 'SECRETARIA', 'ADMINISTRADOR'])->default('REPRESENTATE');
-            $table->text('md5_confirmacion')->default("hay que hgacer el md5 para la confirmacion de cuentas");
+            $table->text('md5_confirmacion')->default('Hay que hacer el MD5 para la confirmación de cuentas');
+            $table->integer('grupo_id');
             $table->rememberToken();
-            $table->timestamps();
+
+            $table->index(["grupo_id"], 'fk_usuarios_grupos1_idx');
 
             $table->unique(["email"], 'correo_UNIQUE');
 
             $table->unique(["md5_confirmacion"], 'md5_confirmacion_UNIQUE');
+
+
+            $table->foreign('grupo_id', 'fk_usuarios_grupos1_idx')
+                ->references('id')->on('grupos')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+                    
+            $table->timestamps();
         });
     }
 

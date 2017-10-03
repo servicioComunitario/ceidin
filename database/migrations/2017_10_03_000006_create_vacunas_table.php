@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRepresentantesTable extends Migration
+class CreateVacunasTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'representantes';
+    public $set_schema_table = 'vacunas';
 
     /**
      * Run the migrations.
-     * @table representantes
+     * @table vacunas
      *
      * @return void
      */
@@ -25,22 +25,17 @@ class CreateRepresentantesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('nombre');
-            $table->text('apellido');
-            $table->text('cedua');
-            $table->text('parentesco');
-            $table->text('direccion');
-            $table->text('telefono_fijo');
-            $table->text('telefono_cecular');
-            $table->integer('usuario_id');
-            $table->timestamps();
+            $table->integer('antecedentes_medico_id');
 
-            $table->index(["usuario_id"], 'fk_representantes_usuarios_idx');
+            $table->index(["antecedentes_medico_id"], 'fk_vacunas_antecedentes_medicos1_idx');
 
 
-            $table->foreign('usuario_id', 'fk_representantes_usuarios_idx')
-                ->references('id')->on('usuarios')
+            $table->foreign('antecedentes_medico_id', 'fk_vacunas_antecedentes_medicos1_idx')
+                ->references('id')->on('antecedentes_medicos')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+                    
+            $table->timestamps();
         });
     }
 
