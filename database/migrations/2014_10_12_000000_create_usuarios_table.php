@@ -26,8 +26,8 @@ class CreateUsuariosTable extends Migration
             $table->increments('id');
             $table->text('email');
             $table->text('password');
-            $table->enum('rol', ['REPRESENTATE', 'DOCENTE', 'SECRETARIA', 'ADMINISTRADOR']);
-            $table->text('md5_confirmacion');
+            $table->enum('rol', ['REPRESENTATE', 'DOCENTE', 'SECRETARIA', 'ADMINISTRADOR'])->default('REPRESENTATE');
+            $table->text('md5_confirmacion')->default("hay que hgacer el md5 para la confirmacion de cuentas");
             $table->rememberToken();
             $table->timestamps();
 

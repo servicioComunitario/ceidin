@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
+
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,72 +12,118 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ config('app.name', 'Laravel') }}</title>
+    
+    <!-- Icono-->
+    <link rel="icon" type="image/png" href={{ asset('images/birrete.ico') }} />
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Bootstrap CSS 3.3.7-->
+    <link href={{ asset('css/bootstrap.min.css') }} rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href={{ asset('css/font-awesome.min.css') }} rel="stylesheet">
+    <!-- NProgress -->
+    <link href={{ asset('css/nprogress.css') }} rel="stylesheet">
+    <!-- jQuery custom content scroller -->
+    <link href={{ asset('css/jquery.mCustomScrollbar.min.css') }} rel="stylesheet"/>
+    <!-- Custom Theme Style -->
+    <link href={{ asset('css/custom.min.css') }} rel="stylesheet">
+    
+    {{-- Css personalizados --}}
+    @yield("css")
+
 </head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+<body class="nav-md" style="background-color: #2A3F54">
+    <div class="container body" >
+        <div class="main_container" >
+            <div class="col-md-3 left_col menu_fixed">
+                <div class="left_col scroll-view">
+                    <div class="navbar nav_title" style="border: 0;">
+                        <a href="{{ route('home')}}" class="site_title">
+                            <i class="fa fa-graduation-cap"></i>
+                            <span>{{ config('app.name', 'Laravel') }}</span>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                    {{-- {{ exit("55") }} --}}
+                    <!-- menu profile quick info -->
+                    <div class="profile clearfix">
+                        <div class="profile_info menu_section">
+                            <h3>
+                                {{ Auth::user()->email }}
+                            </h3>
+                        </div>
+                    </div>
+                    <!-- /menu profile quick info -->
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
+                     <!-- sidebar menu -->
+                    <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                        <div class="menu_section">
+                            <ul class="nav side-menu">
+                                <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="index.html">Dashboard</a></li>
+                                        <li><a href="index2.html">Dashboard2</a></li>
+                                        <li><a href="index3.html">Dashboard3</a></li>
+                                    </ul>
+                                </li>
+                                <li><a><i class="fa fa-gears fa-spin1 fa-fw"></i> Administración <span class="fa fa-chevron-down"></span></a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="index3.html">Dashboard3</a></li>
+                                        {{-- <li><a href="{{ route('home') }}">Periodos</a></li> --}}
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /sidebar menu -->
 
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu" role="menu">
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
+                    <!-- /menu footer buttons -->
+                    <div class="sidebar-footer hidden-small">
+                        <a data-toggle="tooltip" data-placement="top" title="Settings">
+                            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="FullScreen">
+                            <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Lock">
+                            <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
+                        </a>
+                        <a data-toggle="tooltip" data-placement="top" title="Salir" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                            </form>
+                        </a>
+                    </div>
+                    <!-- /menu footer buttons -->
                 </div>
             </div>
-        </nav>
+            
+            <!-- page content -->
+            <div class="right_col" role="main" style="min-height: initial;">
+                @include('layouts._messages')
+                @yield("contenido")
 
-        @yield('content')
+            </div>
+            <!-- /page content -->
+            
+        </div>
     </div>
+    <!-- jQuery -->
+    <script src={{ asset('js/jquery.min.js') }}></script>
+    <!-- Bootstrap -->
+    <script src={{ asset('js/bootstrap.min.js') }}></script>
+    <!-- FastClick -->
+    <script src={{ asset('js/fastclick.js') }}></script>
+    <!-- NProgress -->
+    <script src={{ asset('js/nprogress.js') }}></script>
+    <!-- jQuery custom content scroller -->
+    <script src={{ asset('js/jquery.mCustomScrollbar.concat.min.js') }}></script>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <!-- Custom Theme Scripts -->
+    <script src={{ asset('js/custom.min.js') }}></script>
+
+    {{-- Scripts personalizados --}}
+    @yield("js")
 </body>
 </html>
