@@ -27,8 +27,8 @@
                         @foreach($periodos as $periodo)
                         <tr>
                             <td>{{ $periodo->nombre }}</td>
-                            <td>{{ $periodo->inicio}}</td>
-                            <td>{{ $periodo->fin }}</td>
+                            <td>{{ $periodo->fecha_inicio}}</td>
+                            <td>{{ $periodo->fecha_fin }}</td>
                             <td>{{ $periodo->estado }}</td>
                             <td class="text-center">
                                 <button type="button" class="btn btn-danger btn-xs" title="Eliminar" data-toggle="modal" data-target="#modal_eliminacion" onclick="$('#id_eliminar').val('{{ $periodo->id }}')">
