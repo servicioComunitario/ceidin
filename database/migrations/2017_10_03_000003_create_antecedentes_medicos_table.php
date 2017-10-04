@@ -35,7 +35,7 @@ class CreateAntecedentesMedicosTable extends Migration
             $table->text('alergias')->nullable();
             $table->text('medicamento_fiebre')->nullable();
             $table->text('enfermedades')->nullable();
-                    
+        
             $table->timestamps();
         });
     }

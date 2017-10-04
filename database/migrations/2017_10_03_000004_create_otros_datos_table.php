@@ -27,7 +27,7 @@ class CreateOtrosDatosTable extends Migration
             $table->text('conductas_socioemocionales');
             $table->text('juego');
             $table->text('habitos_independencia');
-                    
+        
             $table->timestamps();
         });
     }

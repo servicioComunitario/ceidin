@@ -34,7 +34,7 @@ class CreateVacunasTable extends Migration
                 ->references('id')->on('antecedentes_medicos')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
-                    
+        
             $table->timestamps();
         });
     }

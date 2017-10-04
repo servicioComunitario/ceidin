@@ -38,7 +38,7 @@ class CreateNoticiasTable extends Migration
                 ->references('id')->on('usuarios')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
-                    
+        
             $table->timestamps();
         });
     }

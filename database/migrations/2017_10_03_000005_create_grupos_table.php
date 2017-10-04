@@ -29,7 +29,7 @@ class CreateGruposTable extends Migration
             $table->text('descripcion');
 
             $table->unique(["nombre"], 'nombre_UNIQUE');
-                    
+        
             $table->timestamps();
         });
     }

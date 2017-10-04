@@ -33,7 +33,7 @@ class CreateAntecedentesFamiliaresTable extends Migration
             $table->text('otros_adultos_casa');
             $table->text('cuidado_por');
             $table->text('tipo_vivienda');
-                    
+        
             $table->timestamps();
         });
     }

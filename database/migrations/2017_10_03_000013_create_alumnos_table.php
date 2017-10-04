@@ -65,7 +65,7 @@ class CreateAlumnosTable extends Migration
                 ->references('id')->on('otros_datos')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
-                    
+        
             $table->timestamps();
         });
     }

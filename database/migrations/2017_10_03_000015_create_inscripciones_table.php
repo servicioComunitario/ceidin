@@ -70,7 +70,7 @@ class CreateInscripcionesTable extends Migration
                 ->references('id')->on('docentes')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
-                    
+        
             $table->timestamps();
         });
     }

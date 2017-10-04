@@ -41,7 +41,7 @@ class CreateUsuariosTable extends Migration
                 ->references('id')->on('grupos')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
-                    
+        
             $table->timestamps();
         });
     }
