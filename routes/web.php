@@ -1,9 +1,9 @@
 <?php
 
 /**************************** Rutas Privadas **********************************/
-Route::group(['middleware' => ['auth','accesoRuta']], function (){
+Route::group(['middleware' => ['auth','acceso']], function (){
  	
-	
+	Route::resource('periodo', 'PeriodoController');
 
 });
 /**************************** Rutas Privadas **********************************/

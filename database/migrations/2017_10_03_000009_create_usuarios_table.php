@@ -26,7 +26,7 @@ class CreateUsuariosTable extends Migration
             $table->increments('id');
             $table->text('email');
             $table->text('password');
-            $table->text('md5_confirmacion')->default('Hay que hacer el MD5 para la confirmación de cuentas');
+            $table->text('md5_confirmacion')->nullable();
             $table->integer('grupo_id');
             $table->rememberToken();
 

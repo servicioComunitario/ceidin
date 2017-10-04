@@ -17,7 +17,7 @@ class Usuario extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'email', 'password', 'grupo_id'
     ];
 
     /**
@@ -28,4 +28,34 @@ class Usuario extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function grupo(){
+        return $this->belongsTo(Grupo::class);
+    }
+
+    public function noticias(){
+        return $this->hasMany(Noticia::class);
+    }
+
+    public function representante(){
+        return $this->hasOne(Representante::class);
+    }
+
+    public function colaboraciones(){
+        return $this->hasMany(Colaboracion::class);
+    }
+
+    public function retiros(){
+        return $this->hasMany(Retiro::class);
+    }
+
+    public function inscripciones(){
+        return $this->hasMany(Noticia::class);
+    }
+
+    public function hasAcceso()
+    {
+        return true;
+    }
+
 }

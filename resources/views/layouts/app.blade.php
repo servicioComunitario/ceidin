@@ -14,18 +14,18 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     
     <!-- Icono-->
-    <link rel="icon" type="image/png" href={{ asset('images/birrete.ico') }} />
+    <link rel="icon" type="image/png" href="{{ asset('images/birrete.ico') }}" />
 
     <!-- Bootstrap CSS 3.3.7-->
-    <link href={{ asset('css/bootstrap.min.css') }} rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href={{ asset('css/font-awesome.min.css') }} rel="stylesheet">
+    <link href="{{ asset('css/font-awesome.min.css') }}"" rel="stylesheet">
     <!-- NProgress -->
-    <link href={{ asset('css/nprogress.css') }} rel="stylesheet">
+    <link href="{{ asset('css/nprogress.css') }}" rel="stylesheet">
     <!-- jQuery custom content scroller -->
-    <link href={{ asset('css/jquery.mCustomScrollbar.min.css') }} rel="stylesheet"/>
+    <link href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
     <!-- Custom Theme Style -->
-    <link href={{ asset('css/custom.min.css') }} rel="stylesheet">
+    <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
     
     {{-- Css personalizados --}}
     @yield("css")
@@ -43,7 +43,6 @@
                         </a>
                     </div>
                     <div class="clearfix"></div>
-                    {{-- {{ exit("55") }} --}}
                     <!-- menu profile quick info -->
                     <div class="profile clearfix">
                         <div class="profile_info menu_section">
@@ -68,8 +67,8 @@
                                 </li>
                                 <li><a><i class="fa fa-gears fa-spin1 fa-fw"></i> Administración <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
-                                        <li><a href="index3.html">Dashboard3</a></li>
-                                        {{-- <li><a href="{{ route('home') }}">Periodos</a></li> --}}
+                                        {{-- <li><a href="index3.html">Dashboard3</a></li> --}}
+                                        <li><a href="{{ route('periodo.index') }}">Periodos Escolares</a></li>
                                     </ul>
                                 </li>
                             </ul>
@@ -110,18 +109,18 @@
         </div>
     </div>
     <!-- jQuery -->
-    <script src={{ asset('js/jquery.min.js') }}></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
     <!-- Bootstrap -->
-    <script src={{ asset('js/bootstrap.min.js') }}></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <!-- FastClick -->
-    <script src={{ asset('js/fastclick.js') }}></script>
+    <script src="{{ asset('js/fastclick.js') }}"></script>
     <!-- NProgress -->
-    <script src={{ asset('js/nprogress.js') }}></script>
+    <script src="{{ asset('js/nprogress.js') }}"></script>
     <!-- jQuery custom content scroller -->
-    <script src={{ asset('js/jquery.mCustomScrollbar.concat.min.js') }}></script>
+    <script src="{{ asset('js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 
     <!-- Custom Theme Scripts -->
-    <script src={{ asset('js/custom.min.js') }}></script>
+    <script src="{{ asset('js/custom.min.js') }}"></script>
 
     {{-- Scripts personalizados --}}
     @yield("js")
