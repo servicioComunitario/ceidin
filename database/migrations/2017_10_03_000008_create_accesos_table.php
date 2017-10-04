@@ -37,7 +37,7 @@ class CreateAccesosTable extends Migration
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
 
-            $table->unique(['usuario_id', 'ruta', 'metodo']);
+            $table->unique(['grupo_id', 'ruta', 'metodo']);
         
             $table->timestamps();
         });
