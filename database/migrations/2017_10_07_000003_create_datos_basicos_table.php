@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAccesosTable extends Migration
+class CreateDatosBasicosTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'accesos';
+    public $set_schema_table = 'datos_basicos';
 
     /**
      * Run the migrations.
-     * @table accesos
+     * @table datos_basicos
      *
      * @return void
      */
@@ -24,22 +24,18 @@ class CreateAccesosTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('ruta');
-            $table->text('metodo');
+            $table->text('cedula');
             $table->text('nombre');
-            $table->integer('grupo_id');
-
-            $table->index(["grupo_id"], 'fk_accesos_grupos1_idx');
-
-
-            $table->foreign('grupo_id', 'fk_accesos_grupos1_idx')
-                ->references('id')->on('grupos')
-                ->onDelete('restrict')
-                ->onUpdate('cascade');
-
-            $table->unique(['grupo_id', 'ruta', 'metodo']);
-        
-            $table->timestamps();
+            $table->text('nombre2')->nullable();
+            $table->text('apellido');
+            $table->text('apellido2')->nullable();
+            $table->text('sexo');
+            $table->text('fecha_nacimiento');
+            $table->text('ocupacion')->nullable();
+            $table->text('direccion')->nullable();
+            $table->text('nacionalidad')->nullable();
+            $table->text('telefono_celular')->nullable();
+            $table->text('telefono_fijo')->nullable();
         });
     }
 

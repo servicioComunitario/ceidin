@@ -24,24 +24,16 @@ class CreateRepresentantesTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('nombre');
-            $table->text('apellido');
-            $table->text('cedua');
             $table->text('parentesco');
-            $table->text('direccion');
-            $table->text('telefono_fijo');
-            $table->text('telefono_cecular');
-            $table->integer('usuario_id');
+            $table->integer('datos_basico_id');
 
-            $table->index(["usuario_id"], 'fk_representantes_usuarios_idx');
+            $table->index(["datos_basico_id"], 'fk_representantes_datos_basicos1_idx');
 
 
-            $table->foreign('usuario_id', 'fk_representantes_usuarios_idx')
-                ->references('id')->on('usuarios')
+            $table->foreign('datos_basico_id', 'fk_representantes_datos_basicos1_idx')
+                ->references('id')->on('datos_basicos')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
-        
-            $table->timestamps();
         });
     }
 

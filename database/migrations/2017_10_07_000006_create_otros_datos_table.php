@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGruposTable extends Migration
+class CreateOtrosDatosTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'grupos';
+    public $set_schema_table = 'otros_datos';
 
     /**
      * Run the migrations.
-     * @table grupos
+     * @table otros_datos
      *
      * @return void
      */
@@ -24,13 +24,9 @@ class CreateGruposTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('nombre');
-            $table->tinyInteger('nivel');
-            $table->text('descripcion');
-
-            $table->unique(["nombre"], 'nombre_UNIQUE');
-        
-            $table->timestamps();
+            $table->text('conductas_socioemocionales');
+            $table->text('juego');
+            $table->text('habitos_independencia');
         });
     }
 

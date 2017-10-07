@@ -40,8 +40,6 @@ class CreatePadresAlumnosTable extends Migration
                 ->references('id')->on('alumnos')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
-        
-            $table->timestamps();
         });
     }
 

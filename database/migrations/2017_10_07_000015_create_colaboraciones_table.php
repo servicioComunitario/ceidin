@@ -24,7 +24,11 @@ class CreateColaboracionesTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->float('monto');
+            $table->text('nombre');
+            $table->text('descripcion')->nullable();
+            $table->float('monto')->nullable();
+            $table->text('cedula')->nullable();
+            $table->text('rif')->nullable();
             $table->text('motivo');
             $table->dateTime('fecha');
             $table->integer('usuario_id');
@@ -36,8 +40,6 @@ class CreateColaboracionesTable extends Migration
                 ->references('id')->on('usuarios')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
-        
-            $table->timestamps();
         });
     }
 

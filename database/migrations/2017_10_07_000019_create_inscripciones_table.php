@@ -36,25 +36,19 @@ class CreateInscripcionesTable extends Migration
             $table->float('peso_entrada');
             $table->float('talla_salida')->nullable();
             $table->float('peso_salida')->nullable();
+            $table->text('cedula_representante');
             $table->date('fecha_validacion');
-            $table->integer('periodo_id');
             $table->integer('alumno_id');
             $table->integer('usuario_id');
-            $table->integer('docente_id');
+            $table->integer('docente_periodo_docente_id');
+            $table->integer('docente_periodo_periodo_id');
 
             $table->index(["alumno_id"], 'fk_inscripciones_alumnos1_idx');
 
             $table->index(["usuario_id"], 'fk_inscripciones_usuarios1_idx');
 
-            $table->index(["docente_id"], 'fk_inscripciones_docentes1_idx');
+            $table->index(["docente_periodo_docente_id", "docente_periodo_periodo_id"], 'fk_inscripciones_docente_periodo1_idx');
 
-            $table->index(["periodo_id"], 'fk_inscripciones_periodos1_idx');
-
-
-            $table->foreign('periodo_id', 'fk_inscripciones_periodos1_idx')
-                ->references('id')->on('periodos')
-                ->onDelete('restrict')
-                ->onUpdate('cascade');
 
             $table->foreign('alumno_id', 'fk_inscripciones_alumnos1_idx')
                 ->references('id')->on('alumnos')
@@ -66,12 +60,10 @@ class CreateInscripcionesTable extends Migration
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
 
-            $table->foreign('docente_id', 'fk_inscripciones_docentes1_idx')
-                ->references('id')->on('docentes')
+            $table->foreign('docente_periodo_docente_id', 'fk_inscripciones_docente_periodo1_idx')
+                ->references('docente_id')->on('docente_periodo')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
-        
-            $table->timestamps();
         });
     }
 

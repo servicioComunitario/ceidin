@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOtrosDatosTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'otros_datos';
+    public $set_schema_table = 'roles';
 
     /**
      * Run the migrations.
-     * @table otros_datos
+     * @table roles
      *
      * @return void
      */
@@ -24,11 +24,9 @@ class CreateOtrosDatosTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('conductas_socioemocionales');
-            $table->text('juego');
-            $table->text('habitos_independencia');
-        
-            $table->timestamps();
+            $table->text('nombre');
+            $table->text('descripcion');
+            $table->boolean('activo');
         });
     }
 

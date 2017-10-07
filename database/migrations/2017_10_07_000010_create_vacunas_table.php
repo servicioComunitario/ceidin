@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNoticiasTable extends Migration
+class CreateVacunasTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'noticias';
+    public $set_schema_table = 'vacunas';
 
     /**
      * Run the migrations.
-     * @table noticias
+     * @table vacunas
      *
      * @return void
      */
@@ -24,22 +24,16 @@ class CreateNoticiasTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('titulo');
-            $table->text('resumen');
-            $table->text('contenido');
-            $table->text('imagen');
-            $table->date('fecha');
-            $table->integer('usuario_id');
+            $table->text('nombre');
+            $table->integer('antecedentes_medico_id');
 
-            $table->index(["usuario_id"], 'fk_noticias_usuarios1_idx');
+            $table->index(["antecedentes_medico_id"], 'fk_vacunas_antecedentes_medicos1_idx');
 
 
-            $table->foreign('usuario_id', 'fk_noticias_usuarios1_idx')
-                ->references('id')->on('usuarios')
+            $table->foreign('antecedentes_medico_id', 'fk_vacunas_antecedentes_medicos1_idx')
+                ->references('id')->on('antecedentes_medicos')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
-        
-            $table->timestamps();
         });
     }
 

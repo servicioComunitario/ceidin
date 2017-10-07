@@ -4,17 +4,17 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePadresTable extends Migration
+class CreateDocentesTable extends Migration
 {
     /**
      * Schema table name to migrate
      * @var string
      */
-    public $set_schema_table = 'padres';
+    public $set_schema_table = 'docentes';
 
     /**
      * Run the migrations.
-     * @table padres
+     * @table docentes
      *
      * @return void
      */
@@ -24,18 +24,16 @@ class CreatePadresTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->text('cedula');
-            $table->text('nombre');
-            $table->text('apellido');
-            $table->date('fecha_nacimiento');
-            $table->text('nacionalidad');
-            $table->text('grado_instruccion');
-            $table->text('ocupacion');
-            $table->text('direccion');
-            $table->text('telefono');
-            $table->text('sexo');
-        
-            $table->timestamps();
+            $table->text('estatus');
+            $table->integer('datos_basico_id');
+
+            $table->index(["datos_basico_id"], 'fk_docentes_datos_basicos1_idx');
+
+
+            $table->foreign('datos_basico_id', 'fk_docentes_datos_basicos1_idx')
+                ->references('id')->on('datos_basicos')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
         });
     }
 
