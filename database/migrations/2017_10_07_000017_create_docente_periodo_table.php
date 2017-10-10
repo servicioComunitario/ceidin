@@ -44,6 +44,8 @@ class CreateDocentePeriodoTable extends Migration
                 ->references('id')->on('periodos')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+        
+            $table->timestamps();
         });
     }
 

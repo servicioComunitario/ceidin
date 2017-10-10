@@ -32,7 +32,7 @@ class CreateUsuariosTable extends Migration
             $table->integer('rol_id');
             $table->integer('datos_basico_id');
             $table->rememberToken();
-            $table->timestamps();
+            
 
             $table->index(["rol_id"], 'fk_usuarios_roles1_idx');
 
@@ -52,6 +52,8 @@ class CreateUsuariosTable extends Migration
                 ->references('id')->on('datos_basicos')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+        
+            $table->timestamps();
         });
     }
 

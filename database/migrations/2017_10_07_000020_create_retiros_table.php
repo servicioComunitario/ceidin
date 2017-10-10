@@ -43,6 +43,8 @@ class CreateRetirosTable extends Migration
                 ->references('id')->on('inscripciones')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+        
+            $table->timestamps();
         });
     }
 

@@ -36,6 +36,8 @@ class CreateAccesosTable extends Migration
                 ->references('id')->on('roles')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+        
+            $table->timestamps();
         });
     }
 

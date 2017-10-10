@@ -29,13 +29,15 @@ class CreateDatosBasicosTable extends Migration
             $table->text('nombre2')->nullable();
             $table->text('apellido');
             $table->text('apellido2')->nullable();
-            $table->text('sexo');
+            $table->char('sexo');
             $table->text('fecha_nacimiento');
             $table->text('ocupacion')->nullable();
             $table->text('direccion')->nullable();
             $table->text('nacionalidad')->nullable();
             $table->text('telefono_celular')->nullable();
             $table->text('telefono_fijo')->nullable();
+        
+            $table->timestamps();
         });
     }
 

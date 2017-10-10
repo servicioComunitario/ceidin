@@ -34,7 +34,7 @@
                     <h1>Iniciar Sesión</h1>
                     <div class="form-group has-feedback {{ $errors->has('email') ? ' has-error' : '' }}">
                         <input type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email">
-                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                        <span class="fa fa-envelope form-control-feedback"></span>
                         @if ($errors->has('email'))
                             <span class="help-block">
                                 <strong>{{ $errors->first('email') }}</strong>
@@ -63,14 +63,19 @@
                     
                     <div class="separator">
                         <p class="change_link">¿No posee un usuario?
-                            <a href="{{ url('/register') }}" class="to_register"> Crear Cuenta </a>
+                            <a href="{{ url('/register') }}" class="to_register">
+                                <b> 
+                                    Crear Cuenta 
+                                    <i class="fa fa-external-link-square text-primary" aria-hidden="true"></i>
+                                </b>
+                            </a>
                         </p>
                         
                         <div class="clearfix"></div>
                         <br />
                         
                         <div>
-                            <h1><i class="fa fa-graduation-cap"></i> Ceidin</h1>
+                            <a href="/"><h1><i class="fa fa-graduation-cap"></i> Ceidin</h1></a>
                             <p>©2017 Ceidin.</p>
                         </div>
                     </div>

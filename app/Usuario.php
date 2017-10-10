@@ -2,8 +2,8 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
 class Usuario extends Authenticatable
 {
@@ -17,7 +17,7 @@ class Usuario extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password', 'grupo_id'
+        'email', 'password'
     ];
 
     /**
@@ -26,11 +26,15 @@ class Usuario extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'confirmado', 'md5_confirmado', 'rol_id', 'datos_basicos_id', 'remember_token',
     ];
 
-    public function grupo(){
-        return $this->belongsTo(Grupo::class);
+    public function datosBasico(){
+        return $this->belongsTo(DatosBasico::class);
+    }
+
+    public function rol(){
+        return $this->belongsTo(Rol::class);
     }
 
     public function noticias(){
@@ -53,9 +57,14 @@ class Usuario extends Authenticatable
         return $this->hasMany(Noticia::class);
     }
 
-    public function hasAcceso()
+    public function hasAcceso($ruta, $metodo)
     {
-        return true;
+        $acceso = Acceso::where('rol_id', $this->rol_id)
+            ->where('ruta', $ruta)
+            ->where('metodo', $metodo)
+            ->count();
+        
+        return $acceso;
     }
 
 }

@@ -28,6 +28,8 @@ class CreatePeriodosTable extends Migration
             $table->date('fecha_inicio');
             $table->date('fecha_fin');
             $table->text('estado');
+        
+            $table->timestamps();
         });
     }
 

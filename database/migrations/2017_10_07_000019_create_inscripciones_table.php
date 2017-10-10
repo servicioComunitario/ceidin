@@ -64,6 +64,8 @@ class CreateInscripcionesTable extends Migration
                 ->references('docente_id')->on('docente_periodo')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
+        
+            $table->timestamps();
         });
     }
 

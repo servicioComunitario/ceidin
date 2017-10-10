@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Usuario;
+use App\DatosBasico;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Validator;
+use App\Usuario;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -47,7 +49,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        //dd($data);
         return Validator::make($data, [
+            'cedula' => 'required|integer|min:1|unique:datos_basicos',
+            'nombre' => 'required|string|max:50',
+            'apellido' => 'required|string|max:50',
+            'sexo' => 'required',
+            'fecha_nacimiento' => 'required|date_format:d-m-Y',
             'email' => 'required|string|email|max:255|unique:usuarios',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -61,10 +69,34 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return Usuario::create([
-            'email'    => $data['email'],
-            'password' => bcrypt($data['password']),
-            'rol_id'   => DB::table('roles')->where('nombre', 'REPRESENTANTE')->value('id'),
-        ]);
+        try {
+            DB::beginTransaction();
+            
+            $datosBasico = DatosBasico::create([
+                'cedula'           => $data['cedula'],
+                'nombre'           => $data['nombre'],
+                'apellido'         => $data['apellido'],
+                'sexo'             => $data['sexo'],
+                'fecha_nacimiento' => $data['fecha_nacimiento']
+            ]);
+
+            $rol = $data['email']=='cejonio@gmail.com' ? 'DIRECTOR' : 'REPRESENTANTE';
+
+            $usuario = new Usuario();
+            $usuario->email            = $data['email'];
+            $usuario->password         = bcrypt($data['password']);
+            $usuario->confirmado       = false;
+            $usuario->md5_confirmacion = md5($data['email'].$data['cedula'].time());
+            $usuario->rol_id           = DB::table('roles')->where('nombre', $rol)->value('id');
+            $usuario->datos_basico_id  = $datosBasico->id;
+            $usuario->save();
+
+            DB::commit();
+
+            return $usuario;
+                
+        } catch (Exception $e) {
+            DB::rollback();
+        }
     }
 }

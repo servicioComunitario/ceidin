@@ -27,6 +27,10 @@ class CreateRolesTable extends Migration
             $table->text('nombre');
             $table->text('descripcion');
             $table->boolean('activo');
+
+            $table->unique(["nombre"], 'nombre_UNIQUE');
+        
+            $table->timestamps();
         });
     }
 
