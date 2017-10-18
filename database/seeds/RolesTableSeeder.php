@@ -14,11 +14,13 @@ class RolesTableSeeder extends Seeder
     	$roles = ['DIRECTOR', 'SECRETARIA', 'DOCENTE', 'REPRESENTANTE', 'INVITADO'];
 
     	foreach ($roles as $rol) {
-    		DB::table('roles')->insert([
-				'nombre'      => $rol,
-				'descripcion' => "ROL DE $rol",
-				'activo' 	  => true
-		    ]);	
+    		try {
+                DB::table('roles')->insert([
+                    'nombre'      => $rol,
+                    'descripcion' => "ROL DE $rol",
+                    'activo'      => true
+                ]); 
+            } catch (Exception $e) {}
     	}
     }
 }

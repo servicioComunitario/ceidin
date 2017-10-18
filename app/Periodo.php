@@ -7,6 +7,8 @@ use Carbon\Carbon;
 
 class Periodo extends Model{
 
+    protected $table = 'periodos';
+
 	protected $fillable = [
 		'fecha_inicio',
 		'fecha_fin',
@@ -30,7 +32,7 @@ class Periodo extends Model{
         return Carbon::parse($fechaFin)->format('d-m-Y');
     }
 
-    public function setFinAttribute($fechaFin)
+    public function setFechaFinAttribute($fechaFin)
     {
         $this->attributes['fecha_fin'] = Carbon::parse($fechaFin)->toDateString();
     }

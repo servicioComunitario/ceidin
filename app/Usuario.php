@@ -26,7 +26,7 @@ class Usuario extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'confirmado', 'md5_confirmado', 'rol_id', 'datos_basicos_id', 'remember_token',
+        'password', 'confirmado', 'md5_confirmacion', 'rol_id', 'datos_basicos_id', 'remember_token',
     ];
 
     public function datosBasico(){

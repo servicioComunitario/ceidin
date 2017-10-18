@@ -9,7 +9,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="x_content">
-                <table id="datatable" class="table table-striped table-bordered jambo_table">
+                <table id="tbl_periodos" class="table table-striped table-bordered jambo_table">
                     <thead>
                         <tr>
                             <th>Nombre</th>

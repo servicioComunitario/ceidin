@@ -24,11 +24,12 @@
     <link href="{{ asset('css/nprogress.css') }}" rel="stylesheet">
     <!-- jQuery custom content scroller -->
     <link href="{{ asset('css/jquery.mCustomScrollbar.min.css') }}" rel="stylesheet"/>
+    <!-- Css personalizados -->
+    @yield("css")
     <!-- Custom Theme Style -->
     <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet">
     
-    {{-- Css personalizados --}}
-    @yield("css")
+
 
 </head>
 <body class="nav-md" style="background-color: #2A3F54">
@@ -119,10 +120,11 @@
     <!-- jQuery custom content scroller -->
     <script src="{{ asset('js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 
+    <!-- Scripts personalizados -->
+    @yield("js")
+
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('js/custom.min.js') }}"></script>
 
-    {{-- Scripts personalizados --}}
-    @yield("js")
 </body>
 </html>

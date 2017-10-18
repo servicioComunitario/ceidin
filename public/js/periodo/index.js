@@ -1,3 +1,3 @@
 $(document).ready(function() {
-	$("#datatable").DataTable().order([0, 'desc']).draw();
+	$("#tbl_periodos").DataTable().order([0, 'desc']).draw();
 });

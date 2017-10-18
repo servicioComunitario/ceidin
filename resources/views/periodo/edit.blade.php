@@ -23,6 +23,6 @@
 	<script src="{{ asset('js/datepicker/moment.min.js') }}"></script>
 	<script src="{{ asset('js/datepicker/daterangepicker.js') }}""></script>
 	<!-- Edicion -->
-	<script src="{{ asset('js/periodo/create.js') }}"></script>
+	<script src="{{ asset('js/periodo/edit.js') }}"></script>
 @stop
 

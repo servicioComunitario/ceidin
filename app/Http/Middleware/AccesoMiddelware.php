@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Route;
 
 class AccesoMiddelware
 {
@@ -16,7 +17,7 @@ class AccesoMiddelware
     public function handle($request, Closure $next)
     {
         $usuario = $request->user();
-        $ruta    = $request->path();
+        $ruta    = Route::getRoutes()->match($request)->uri();
         $metodo  = $request->method();
 
         if($usuario->hasAcceso($ruta, $metodo)){

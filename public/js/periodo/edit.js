@@ -42,4 +42,6 @@ $(document).ready(function() {
 
 		$('#nombre').val(fechaInicio+"-"+fechaFin);
 	});
+
+	$( "#fecha_inicio, #fecha_fin" ).change();
 });

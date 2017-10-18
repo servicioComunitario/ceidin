@@ -2,10 +2,17 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\UnicoPeriodoAbiertoRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class CreatePeriodoRequest extends FormRequest
 {
+    protected $reglas = [
+        'fecha_inicio' => 'required|date_format:d-m-Y|before:fecha_fin',
+        'fecha_fin'    => 'required|date_format:d-m-Y|after:fecha_inicio',
+        'nombre'       => 'required|unique:periodos'
+    ];
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -23,11 +30,8 @@ class CreatePeriodoRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'fecha_inicio' => 'required|date_format:d-m-Y|before:fecha_fin',
-            'fecha_fin'    => 'required|date_format:d-m-Y|after:fecha_inicio',
-            'nombre'       => 'required|unique:periodos',
-            'estado'       => 'required'
-        ];
+        $this->reglas['estado'] = ['required', new UnicoPeriodoAbiertoRule()];
+
+        return $this->reglas;
     }
 }

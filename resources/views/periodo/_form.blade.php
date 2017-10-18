@@ -56,6 +56,7 @@
                             <label class="radio-inline">
                                 CERRADO <input type="radio" class="flat" name="estado" id="estadoCerrado" value="CERRADO" @if ($periodo->estado=="CERRADO" || old('estado')=="CERRADO") checked @endif>
                             </label>
+                            {{-- {{ dd($periodo) }} --}}
                             @if ($errors->has('estado'))
                                 <br/>
                                 <span class="text-danger">{{ $errors->first('estado') }}</span>

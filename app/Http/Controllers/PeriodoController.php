@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CreatePeriodoRequest;
 use App\Http\Requests\UpdatePeriodoRequest;
-use App\Periodo;
+use \App\Periodo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -42,6 +42,7 @@ class PeriodoController extends Controller
     public function store(CreatePeriodoRequest $request)
     {
         try{
+
             DB::beginTransaction();
 
             $periodo = Periodo::create(
