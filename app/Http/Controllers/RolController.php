@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateRolRequest;
+use App\Http\Requests\UpdateRolRequest;
 use App\Rol;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class RolController extends Controller
 {
@@ -14,7 +17,9 @@ class RolController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Rol::all()->sortByDesc("nombre");
+
+        return view("rol.index")->with("roles", $roles);
     }
 
     /**
@@ -24,7 +29,8 @@ class RolController extends Controller
      */
     public function create()
     {
-        //
+        $rol = new Rol();
+        return view("rol.create")->with('rol', $rol);
     }
 
     /**
@@ -33,9 +39,24 @@ class RolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateRolRequest $request)
     {
-        //
+        try{
+
+            DB::beginTransaction();
+
+            $rol = rol::create(
+                $request->all()
+            );
+            
+            DB::commit();
+            session()->flash('msg_success', "El Rol '$rol->nombre' ha sido creado.");
+        } catch (Exception $e) {
+            DB::rollback();
+            session()->flash('msg_danger', $e->getMessage());
+        }
+
+        return redirect()->route('rol.edit', $rol->id);
     }
 
     /**
@@ -46,7 +67,7 @@ class RolController extends Controller
      */
     public function show(Rol $rol)
     {
-        //
+        return redirect()->route('rol.index');
     }
 
     /**
@@ -57,7 +78,7 @@ class RolController extends Controller
      */
     public function edit(Rol $rol)
     {
-        //
+        return view("rol.edit")->with("rol", $rol);
     }
 
     /**
@@ -67,9 +88,25 @@ class RolController extends Controller
      * @param  \App\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Rol $rol)
+    public function update(UpdateRolRequest $request, Rol $rol)
     {
-        //
+        try{
+            DB::beginTransaction();
+
+            $rol->update(
+                $request->all()
+            );
+
+            DB::commit();
+
+            session()->flash('msg_info', "El rol '$rol->nombre' ha sido actualizado.");
+        } catch (Exception $e) {
+            DB::rollback();
+
+            session()->flash('msg_danger', $e->getMessage());
+        }
+
+        return redirect()->route('rol.edit', $rol->id);
     }
 
     /**
@@ -78,8 +115,18 @@ class RolController extends Controller
      * @param  \App\Rol  $rol
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Rol $rol)
+    public function destroy(Request $request)
     {
-        //
+        try {
+            $rol = rol::find($request->id);
+
+            $rol->delete();
+
+            session()->flash('msg_danger', "El rol '$rol->nombre' ha sido eliminado.");
+        } catch (Exception $e) {
+            session()->flash('msg_danger', $e->getMessage());
+        }
+
+        return redirect()->route('rol.index');
     }
 }

@@ -4,6 +4,7 @@
 Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
  	
 	Route::resource('periodo', 'PeriodoController');
+	Route::resource('rol', 'RolController');
 
 });
 /**************************** Rutas Privadas **********************************/
