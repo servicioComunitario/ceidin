@@ -1,7 +1,7 @@
 <?php
 
 /**************************** Rutas Privadas **********************************/
-Route::group(['middleware' => ['auth','acceso']], function (){
+Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
  	
 	Route::resource('periodo', 'PeriodoController');
 
@@ -9,7 +9,7 @@ Route::group(['middleware' => ['auth','acceso']], function (){
 /**************************** Rutas Privadas **********************************/
 /*----------------------------------------------------------------------------*/
 /*************************** Rutas Protegidas *********************************/
-Route::group(['middleware' => 'auth'], function (){
+Route::group(['middleware' => 'auth', 'bindings'], function (){
 
  	Route::get('/home', 'HomeController@index')->name('home');
 
@@ -17,7 +17,11 @@ Route::group(['middleware' => 'auth'], function (){
 /*************************** Rutas Protegidas *********************************/
 /*----------------------------------------------------------------------------*/
 /**************************** Rutas Públicas **********************************/
-Auth::routes();
+Route::group(['middleware' => 'bindings'], function (){
 
-Route::get('/', function () { return view('welcome'); });
+	Auth::routes();
+
+	Route::get('/', function () { return view('welcome'); });
+
+});
 /**************************** Rutas Públicas **********************************/
