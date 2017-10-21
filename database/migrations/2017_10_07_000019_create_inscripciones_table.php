@@ -38,17 +38,10 @@ class CreateInscripcionesTable extends Migration
             $table->float('peso_salida')->nullable();
             $table->text('cedula_representante');
             $table->date('fecha_validacion');
-            $table->integer('alumno_id');
-            $table->integer('usuario_id');
-            $table->integer('docente_periodo_docente_id');
-            $table->integer('docente_periodo_periodo_id');
-
-            $table->index(["alumno_id"], 'fk_inscripciones_alumnos1_idx');
-
-            $table->index(["usuario_id"], 'fk_inscripciones_usuarios1_idx');
-
-            $table->index(["docente_periodo_docente_id", "docente_periodo_periodo_id"], 'fk_inscripciones_docente_periodo1_idx');
-
+            $table->integer('alumno_id')->unsigned();
+            $table->integer('usuario_id')->unsigned();
+            $table->integer('docente_periodo_docente_id')->unsigned();
+            $table->integer('docente_periodo_periodo_id')->unsigned();
 
             $table->foreign('alumno_id', 'fk_inscripciones_alumnos1_idx')
                 ->references('id')->on('alumnos')

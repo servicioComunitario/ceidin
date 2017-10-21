@@ -31,10 +31,7 @@ class CreateNoticiasTable extends Migration
             $table->date('fecha');
             $table->boolean('principal');
             $table->tinyInteger('orden');
-            $table->integer('usuario_id');
-
-            $table->index(["usuario_id"], 'fk_noticias_usuarios1_idx');
-
+            $table->integer('usuario_id')->unsigned();
 
             $table->foreign('usuario_id', 'fk_noticias_usuarios1_idx')
                 ->references('id')->on('usuarios')

@@ -70,6 +70,7 @@
                                 </li>
                                 <li><a><i class="fa fa-lock fa-fw"></i> Seguridad <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
+                                        <li><a href="{{ route('acceso.index') }}">Accesos</a></li>
                                         <li><a href="{{ route('rol.index') }}">Roles</a></li>
                                     </ul>
                                 </li>

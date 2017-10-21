@@ -25,10 +25,7 @@ class CreateDocentesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('estatus');
-            $table->integer('datos_basico_id');
-
-            $table->index(["datos_basico_id"], 'fk_docentes_datos_basicos1_idx');
-
+            $table->integer('datos_basico_id')->unsigned();
 
             $table->foreign('datos_basico_id', 'fk_docentes_datos_basicos1_idx')
                 ->references('id')->on('datos_basicos')

@@ -23,13 +23,8 @@ class CreatePadresAlumnosTable extends Migration
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('padre_id');
-            $table->integer('alumno_id');
-
-            $table->index(["padre_id"], 'fk_padres_alumnos_padres1_idx');
-
-            $table->index(["alumno_id"], 'fk_padres_alumnos_alumnos1_idx');
-
+            $table->integer('padre_id')->unsigned();
+            $table->integer('alumno_id')->unsigned();
 
             $table->foreign('padre_id', 'fk_padres_alumnos_padres1_idx')
                 ->references('id')->on('padres')

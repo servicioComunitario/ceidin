@@ -29,10 +29,7 @@ class CreateSolicitudesTable extends Migration
             $table->dateTime('fecha_solicitada');
             $table->dateTime('fecha_atendida')->nullable();
             $table->text('cedula_solicitante');
-            $table->integer('usuario_id');
-
-            $table->index(["usuario_id"], 'fk_solicitudes_usuarios1_idx');
-
+            $table->integer('usuario_id')->unsigned();
 
             $table->foreign('usuario_id', 'fk_solicitudes_usuarios1_idx')
                 ->references('id')->on('usuarios')

@@ -25,8 +25,8 @@ class CreateDatosBasicosTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('cedula');
-            $table->text('nombre');
-            $table->text('nombre2')->nullable();
+            $table->string('nombre', 200);
+            $table->string('nombre2', 200)->nullable();
             $table->text('apellido');
             $table->text('apellido2')->nullable();
             $table->char('sexo');

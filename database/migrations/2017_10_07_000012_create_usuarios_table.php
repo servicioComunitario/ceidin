@@ -28,20 +28,14 @@ class CreateUsuariosTable extends Migration
             $table->string('email');
             $table->string('password');
             $table->boolean('confirmado')->default('0');
-            $table->text('md5_confirmacion');
-            $table->integer('rol_id');
-            $table->integer('datos_basico_id');
+            $table->string('md5_confirmacion', 200);
+            $table->integer('rol_id')->unsigned();
+            $table->integer('datos_basico_id')->unsigned();
             $table->rememberToken();
             
-
-            $table->index(["rol_id"], 'fk_usuarios_roles1_idx');
-
-            $table->index(["datos_basico_id"], 'fk_usuarios_datos_basicos1_idx');
-
             $table->unique(["email"], 'correo_UNIQUE');
 
             $table->unique(["md5_confirmacion"], 'md5_confirmacion_UNIQUE');
-
 
             $table->foreign('rol_id', 'fk_usuarios_roles1_idx')
                 ->references('id')->on('roles')

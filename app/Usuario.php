@@ -61,7 +61,7 @@ class Usuario extends Authenticatable
     {
         $acceso = Acceso::where('rol_id', $this->rol_id)
             ->where('ruta', $ruta)
-            ->where('metodo', $metodo)
+            ->where('metodos', 'LIKE',"%$metodo%")
             ->count();
         
         return $acceso;

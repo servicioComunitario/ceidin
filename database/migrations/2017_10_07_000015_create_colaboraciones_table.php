@@ -31,10 +31,7 @@ class CreateColaboracionesTable extends Migration
             $table->text('rif')->nullable();
             $table->text('motivo');
             $table->dateTime('fecha');
-            $table->integer('usuario_id');
-
-            $table->index(["usuario_id"], 'fk_colaboraciones_usuarios1_idx');
-
+            $table->integer('usuario_id')->unsigned();
 
             $table->foreign('usuario_id', 'fk_colaboraciones_usuarios1_idx')
                 ->references('id')->on('usuarios')

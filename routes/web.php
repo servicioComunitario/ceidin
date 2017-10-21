@@ -3,7 +3,11 @@
 /**************************** Rutas Privadas **********************************/
 Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
  	
+ 	// ADMINISTRCIÓN
 	Route::resource('periodo', 'PeriodoController');
+
+	// SEGURIDAD
+ 	Route::resource('acceso', 'AccesoController');
 	Route::resource('rol', 'RolController');
 
 });

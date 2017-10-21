@@ -45,7 +45,7 @@ class RolController extends Controller
 
             DB::beginTransaction();
 
-            $rol = rol::create(
+            $rol = Rol::create(
                 $request->all()
             );
             

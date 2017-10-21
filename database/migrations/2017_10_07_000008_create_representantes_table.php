@@ -25,10 +25,7 @@ class CreateRepresentantesTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('parentesco');
-            $table->integer('datos_basico_id');
-
-            $table->index(["datos_basico_id"], 'fk_representantes_datos_basicos1_idx');
-
+            $table->integer('datos_basico_id')->unsigned();
 
             $table->foreign('datos_basico_id', 'fk_representantes_datos_basicos1_idx')
                 ->references('id')->on('datos_basicos')

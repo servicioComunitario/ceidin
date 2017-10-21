@@ -25,10 +25,7 @@ class CreateVacunasTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('nombre');
-            $table->integer('antecedentes_medico_id');
-
-            $table->index(["antecedentes_medico_id"], 'fk_vacunas_antecedentes_medicos1_idx');
-
+            $table->integer('antecedentes_medico_id')->unsigned();
 
             $table->foreign('antecedentes_medico_id', 'fk_vacunas_antecedentes_medicos1_idx')
                 ->references('id')->on('antecedentes_medicos')

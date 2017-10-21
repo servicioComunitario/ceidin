@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Database\Seeder;
 
 class AccesosTableSeeder extends Seeder
@@ -12,18 +13,16 @@ class AccesosTableSeeder extends Seeder
     public function run()
     {
    		
-        $rutas = Route::getRoutes()->getRoutes();
+        $rutas = Controller::getRutasPrivadas();
      	foreach ($rutas as $ruta) {
-     		foreach ($ruta->methods as $metodo) {
-     		    try{
-	     		    DB::table('accesos')->insert([
-                        'rol_id' => DB::table('roles')->where('nombre', 'DIRECTOR')->value('id'),
-                        'ruta'   => $ruta->uri,
-                        'metodo' => $metodo,
-                        'nombre' => isset($ruta->action['as']) ? $ruta->action['as']: null
-	     		    ]);
-     		    }catch(Exception $e){}
-     		}
+ 		    try{
+     		    DB::table('accesos')->insert([
+                    'rol_id'  => DB::table('roles')->where('nombre', 'DIRECTOR')->value('id'),
+                    'ruta'    => $ruta->uri,
+                    'metodos' => implode('|',$ruta->methods),
+                    'nombre'  => isset($ruta->action['as']) ? $ruta->action['as']: null
+     		    ]);
+ 		    }catch(Exception $e){}
         }
     }
 }

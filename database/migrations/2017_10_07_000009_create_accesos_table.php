@@ -25,12 +25,9 @@ class CreateAccesosTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('ruta');
-            $table->text('metodo');
+            $table->text('metodos');
             $table->text('nombre')->nullable();
-            $table->integer('rol_id');
-
-            $table->index(["rol_id"], 'fk_accesos_roles1_idx');
-
+            $table->integer('rol_id')->unsigned();
 
             $table->foreign('rol_id', 'fk_accesos_roles1_idx')
                 ->references('id')->on('roles')

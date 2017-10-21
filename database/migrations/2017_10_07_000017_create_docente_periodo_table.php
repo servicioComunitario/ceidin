@@ -23,17 +23,12 @@ class CreateDocentePeriodoTable extends Migration
         if (Schema::hasTable($this->set_schema_table)) return;
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->increments('docente_id');
-            $table->integer('periodo_id');
+            $table->increments('docente_id')->unsigned();
+            $table->integer('periodo_id')->unsigned();
             $table->tinyInteger('cupos');
             $table->tinyInteger('nivel');
             $table->text('turno');
             $table->text('seccion');
-
-            $table->index(["periodo_id"], 'fk_docente_periodo_periodos1_idx');
-
-            $table->index(["docente_id"], 'fk_docente_periodo_docentes1_idx');
-
 
             $table->foreign('docente_id', 'fk_docente_periodo_docentes1_idx')
                 ->references('id')->on('docentes')

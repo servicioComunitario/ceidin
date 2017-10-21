@@ -26,13 +26,8 @@ class CreateRetirosTable extends Migration
             $table->increments('id');
             $table->date('fecha');
             $table->text('motivo');
-            $table->integer('inscripcion_id');
-            $table->integer('usuario_id');
-
-            $table->index(["inscripcion_id"], 'fk_retiros_inscripciones1_idx');
-
-            $table->index(["usuario_id"], 'fk_retiros_usuarios1_idx');
-
+            $table->integer('inscripcion_id')->unsigned();
+            $table->integer('usuario_id')->unsigned();
 
             $table->foreign('usuario_id', 'fk_retiros_usuarios1_idx')
                 ->references('id')->on('usuarios')
