@@ -1,26 +1,21 @@
-function cambiarAcceso(chkAcceso, event) {
-
+function cambiarRolUsuario(chkRol, event) {
+	
 	event.preventDefault();
 	
-	var ruta     = chkAcceso.attr('ruta');
-	var metodos  = chkAcceso.attr('metodos');
-	var nombre   = chkAcceso.attr('nombre');
-	var idRol    = chkAcceso.attr('id_rol');
-	var idAcceso = chkAcceso.attr('id_acceso');
-
+	var idRol     = chkRol.is(':checked') ? chkRol.attr('id_rol') : chkRol.attr('id_rol_anterior');
+	var idUsuario = chkRol.attr('id_usuario');
+	
 	$.ajax({
 			data: {
-				ruta    : ruta,
-				metodos : metodos,
-				nombre  : nombre,
-				rol_id  : idRol,
-				id      : idAcceso,
+				rol_id     : idRol,
+				usuario_id : idUsuario,
 			}
 		})
 		.done(function(respuesta) {
-			var switchery = document.querySelector('#'+chkAcceso.attr('id'));
+			$(chkRol.parent().parent().parent().children()[4]).text(respuesta.nombreRol);
+			var switchery = document.querySelector('#'+chkRol.attr('id'));
 	        
-	        switchery.checked = chkAcceso.is(':checked') ? false : true;
+	        switchery.checked = chkRol.is(':checked') ? false : true;
 
 			if (typeof Event === 'function' || !document.fireEvent) {
 			    var event = document.createEvent('HTMLEvents');
@@ -65,8 +60,8 @@ function cambiarAcceso(chkAcceso, event) {
 
 $(document).ready(function() {
 	$.ajaxSetup({
-		url: urlUpdate,
-		type: 'PUT',
+		url: urlUpdateRolUsuario,
+		type: 'POST',
 		dataType: 'json',
 	    headers: {
 	        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')

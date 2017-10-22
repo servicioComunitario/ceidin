@@ -14,6 +14,7 @@
                         <tr>
                             <th>Nombre</th>
                             <th>Descripción</th>
+                            <th>Usuarios</th>
                             <th>Activo</th>
                             <th style="width: 80px;" class="text-center">
                                 <a href={{ route('rol.create') }} class="btn btn-success btn-xs" title="Crear">
@@ -27,6 +28,7 @@
                         <tr>
                             <td>{{ $rol->nombre }}</td>
                             <td>{{ $rol->descripcion}}</td>
+                            <td>{{ $rol->usuarios}}</td>
                             <td>{{ $rol->activo ? "Sí" : "No" }}</td>
                             <td class="text-center">
                                 <button type="button" class="btn btn-danger btn-xs" title="Eliminar" data-toggle="modal" data-target="#modal_eliminacion" onclick="$('#id_eliminar').val('{{ $rol->id }}')">

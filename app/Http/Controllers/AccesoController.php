@@ -6,6 +6,7 @@ use App\Acceso;
 use App\Http\Requests\CreateAccesoRequest;
 use App\Http\Requests\UpdateAccesoRequest;
 use App\Rol;
+use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -19,6 +20,7 @@ class AccesoController extends Controller
     public function index()
     {
         $totalRutas = count(self::getRutasPrivadas());
+        
         $accesos =  DB::table('roles as r')
             ->select([
                 'r.id',
@@ -31,17 +33,6 @@ class AccesoController extends Controller
             ->get();
 
         return view("acceso.index")->with("accesos", $accesos);
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Acceso  $acceso
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Acceso $acceso)
-    {
-        return redirect()->route('acceso.index');
     }
 
     /**
@@ -105,7 +96,31 @@ class AccesoController extends Controller
                 );
             }
 
-            return response()->json(json_encode(["msj" => "OK"]));
+            return response()->json(["msj" => "OK"]);
+        } catch (Exception $e) {
+            die($e->getMessage());
+        }
+    }
+
+    /**
+     * Método Prestado para cambiarle el Rol a un Usuario
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        try{
+            $usuario = Usuario::find($request->usuario_id);
+            
+            $usuario->rol_id = $request->rol_id;
+
+            $usuario->save();
+
+            return response()->json([
+                "msj"       => "OK",
+                "nombreRol" => $usuario->rol->nombre
+            ]);
+
         } catch (Exception $e) {
             die($e->getMessage());
         }

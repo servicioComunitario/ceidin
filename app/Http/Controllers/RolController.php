@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateRolRequest;
 use App\Http\Requests\UpdateRolRequest;
 use App\Rol;
+use App\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +18,16 @@ class RolController extends Controller
      */
     public function index()
     {
-        $roles = Rol::all()->sortByDesc("nombre");
+        $totalUsuarios = Usuario::all()->count();
+
+        $roles =  DB::table('roles as r')
+            ->select([
+                'r.*',
+                DB::raw("COUNT(email) || ' de ' || $totalUsuarios as usuarios"),
+            ])
+            ->leftJoin('usuarios as u', 'u.rol_id', '=', 'r.id')
+            ->groupBy(['r.id'])
+            ->get();
 
         return view("rol.index")->with("roles", $roles);
     }
@@ -78,7 +88,16 @@ class RolController extends Controller
      */
     public function edit(Rol $rol)
     {
-        return view("rol.edit")->with("rol", $rol);
+        $usuarios = Usuario::with('rol')
+            ->with('datosBasico')
+            ->get();
+
+        //dd($usuarios);
+
+        return view("rol.edit")->with([
+            "rol"      => $rol,
+            "usuarios" => $usuarios
+        ]);
     }
 
     /**

@@ -29,6 +29,19 @@ class Usuario extends Authenticatable
         'password', 'confirmado', 'md5_confirmacion', 'rol_id', 'datos_basicos_id', 'remember_token',
     ];
 
+    public function hasAcceso($ruta, $metodo)
+    {
+        $acceso = Acceso::where('rol_id', $this->rol_id)
+            ->where('ruta', $ruta)
+            ->where('metodos', 'LIKE',"%$metodo%")
+            ->count();
+        
+        return $acceso;
+    }
+
+
+
+    /*-------------------------------Relaciones-------------------------------*/
     public function datosBasico(){
         return $this->belongsTo(DatosBasico::class);
     }
@@ -56,15 +69,68 @@ class Usuario extends Authenticatable
     public function inscripciones(){
         return $this->hasMany(Noticia::class);
     }
-
-    public function hasAcceso($ruta, $metodo)
+    /*------------------------------/Relaciones-------------------------------*/
+    
+    /*--------------------- Bind Datos Basicos ------------------------*/
+    public function getCedulaAttribute()
     {
-        $acceso = Acceso::where('rol_id', $this->rol_id)
-            ->where('ruta', $ruta)
-            ->where('metodos', 'LIKE',"%$metodo%")
-            ->count();
-        
-        return $acceso;
+        return $this->datosBasico->cedula;
     }
+
+    public function getNombreAttribute()
+    {
+        return $this->datosBasico->nombre;
+    }
+
+    public function getNombre2Attribute()
+    {
+        return $this->datosBasico->nombre2;
+    }
+
+    public function getApellidoAttribute()
+    {
+        return $this->datosBasico->apellido;
+    }
+
+    public function getApellido2Attribute()
+    {
+        return $this->datosBasico->apellido2;
+    }
+
+    public function getSexoAttribute()
+    {
+        return $this->datosBasico->sexo;
+    }
+
+    public function getFechaNacimientoAttribute()
+    {
+        return Carbon::parse($this->datosBasico->fecha_nacimiento)->format('d-m-Y');
+    }
+
+    public function getOcupacionAttribute()
+    {
+        return $this->datosBasico->ocupacion;
+    }
+
+    public function getDireccionAttribute()
+    {
+        return $this->datosBasico->direccion;
+    }
+
+    public function getNacionalidadAttribute()
+    {
+        return $this->datosBasico->nacionalidad;
+    }
+
+    public function getTelefonoCelularAttribute()
+    {
+        return $this->datosBasico->telefono_celular;
+    }
+
+    public function getTelefonoFijoAttribute()
+    {
+        return $this->datosBasico->telefono_fijo;
+    }
+    /*--------------------- /Bind de Datos Basicos -----------------------*/
 
 }
