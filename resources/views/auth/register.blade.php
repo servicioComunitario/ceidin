@@ -18,8 +18,6 @@
     <link href={{ asset("css/font-awesome.min.css") }} rel="stylesheet">
     <!-- NProgress -->
     <link href={{ asset("css/nprogress.css") }} rel="stylesheet">
-    <!-- DateRangerPicker -->
-    <link href="{{ asset('css/datepicker/daterangepicker.css') }}" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href={{ asset("css/custom.min.css") }} rel="stylesheet">
 
@@ -163,51 +161,8 @@
     <!-- jQuery custom content scroller -->
     <script src="{{ asset('js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 
-    <!-- DateRangerPicker -->
-    <script src="{{ asset('js/datepicker/moment.min.js') }}"></script>
-    <script src="{{ asset('js/datepicker/daterangepicker.js') }}""></script>
-
     <!-- Custom Theme Scripts -->
     <script src="{{ asset('js/custom.min.js') }}"></script>
-
-<script type="text/javascript">
-    $(document).ready(function() {
-        $('#fecha_nacimiento').daterangepicker({
-            locale: {
-                format: "DD-MM-YYYY",
-                separator: " - ",
-                daysOfWeek: [
-                    "Do",
-                    "Lu",
-                    "Ma",
-                    "Mi",
-                    "Ju",
-                    "Vi",
-                    "Sá"
-                ],
-                "monthNames": [
-                    "Enero",
-                    "Febrero",
-                    "Marzo",
-                    "Abril",
-                    "Mayo",
-                    "Junio",
-                    "Julio",
-                    "Agosto",
-                    "Septiembre",
-                    "Octubre",
-                    "Noviembre",
-                    "Diciembre"
-                ],
-                firstDay: 1
-            },
-            singleDatePicker : true,
-            singleClasses    : "picker_3"
-        });
-
-        $('#fecha_nacimiento').val("{{ old('fecha_nacimiento') }}");
-    });
-</script>
-
+    
 </body>
 </html>

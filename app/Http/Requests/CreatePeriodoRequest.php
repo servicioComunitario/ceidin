@@ -8,8 +8,8 @@ use Illuminate\Foundation\Http\FormRequest;
 class CreatePeriodoRequest extends FormRequest
 {
     protected $reglas = [
-        'fecha_inicio' => 'required|date_format:d-m-Y|before:fecha_fin',
-        'fecha_fin'    => 'required|date_format:d-m-Y|after:fecha_inicio',
+        'fecha_inicio' => 'required|date_format:d-m-Y|date|before:fecha_fin',
+        'fecha_fin'    => 'required|date_format:d-m-Y|date|after:fecha_inicio',
         'nombre'       => 'required|unique:periodos'
     ];
 
