@@ -5,6 +5,9 @@ Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
  	
  	// ADMINISTRCIÓN
 	Route::resource('periodo', 'PeriodoController');
+	
+
+
 
 	// SEGURIDAD
  	Route::resource('acceso', 'AccesoController');
@@ -18,6 +21,8 @@ Route::group(['middleware' => 'auth', 'bindings'], function (){
 
  	Route::get('/home', 'HomeController@index')->name('home');
 
+	//  
+	Route::resource('padre', 'PadreController');
 });
 /*************************** Rutas Protegidas *********************************/
 /*----------------------------------------------------------------------------*/
@@ -30,3 +35,5 @@ Route::group(['middleware' => 'bindings'], function (){
 
 });
 /**************************** Rutas Públicas **********************************/
+
+

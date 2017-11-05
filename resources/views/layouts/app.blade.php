@@ -66,6 +66,7 @@
                                 <li><a><i class="fa fa-gears fa-fw"></i> Administración <span class="fa fa-chevron-down"></span></a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('periodo.index') }}">Periodos Escolares</a></li>
+                                        <li><a href="{{ route('padre.index') }}">Padres</a></li>
                                     </ul>
                                 </li>
                                 <li><a><i class="fa fa-lock fa-fw"></i> Seguridad <span class="fa fa-chevron-down"></span></a>

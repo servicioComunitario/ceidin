@@ -14,11 +14,16 @@ class DatosBasico extends Model
      * @var array
      */
     protected $fillable = [
-        'cedula', 'nombre', 'apellido', 'sexo', 'fecha_nacimiento'
+        'cedula', 'nombre', 'nombre2', 'apellido', 'apellido2', 'sexo', 'fecha_nacimiento', 'ocupacion', 'direccion', 'nacionalidad', 'telefono_celular', 'telefono_fijo'
     ];
 
     public function usuario()
     {
     	return $this->hasOne(Usuario::class);
+    }
+
+    public function padre()
+    {
+        return $this->hasOne(Padre::class);
     }
 }
