@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $request = $this->app['request'];
 
-        if(!$request->secure() && env('APP_ENV'!='local')){
+        if(!$request->secure() && env('APP_ENV')!='local'){
             $this->app['request']->server->set('HTTPS', true);
         }
     }
