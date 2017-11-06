@@ -105,7 +105,7 @@
                         <!-- Items -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/business.jpg') : 'http://lorempixel.com/1280/720/business' }}" alt="Business">
+                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/business.jpg') : 'https://lorempixel.com/1280/720/business' }}" alt="Business">
                                 <div class="carousel-caption">
                                     <div class="noticia-item" data-toggle="modal" data-target="#noticiaModal1">
                                         <div class="noticia-link">
@@ -128,7 +128,7 @@
                             </div>
 
                             <div class="item">
-                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/technics.jpg') : 'http://lorempixel.com/1280/720/technics' }}" alt="Technics">
+                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/technics.jpg') : 'https://lorempixel.com/1280/720/technics' }}" alt="Technics">
                                 <div class="carousel-caption">
                                     <div class="noticia-item">
                                         <div class="noticia-link" data-toggle="modal" data-target="#noticiaModal2">
@@ -151,7 +151,7 @@
                             </div>
 
                             <div class="item">
-                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/city.jpg') : 'http://lorempixel.com/1280/720/city' }}" alt="City">
+                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/city.jpg') : 'https://lorempixel.com/1280/720/city' }}" alt="City">
                                 <div class="carousel-caption">
                                     <div class="noticia-item" data-toggle="modal" data-target="#noticiaModal3">
                                         <div class="noticia-link">
@@ -582,7 +582,7 @@
                                 <!-- Resumen de la Noticia./ -->
                                 <p class="noticia-modal-resumen text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <!-- Imgagen de la Noticia./ -->
-                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/business.jpg') : 'http://lorempixel.com/1280/720/business' }}" alt="Business">
+                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/business.jpg') : 'https://lorempixel.com/1280/720/business' }}" alt="Business">
                                 <!-- Cuerpo de la Noticia -->
                                 <div class="noticia-modal-cuerpo">
                                     <p>
@@ -627,7 +627,7 @@
                                 <!-- Resumen de la Noticia./ -->
                                 <p class="noticia-modal-resumen text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <!-- Imgagen de la Noticia./ -->
-                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/technics.jpg') : 'http://lorempixel.com/1280/720/technics' }}" alt="Technics">
+                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/technics.jpg') : 'https://lorempixel.com/1280/720/technics' }}" alt="Technics">
                                 <!-- Cuerpo de la Noticia -->
                                 <div class="noticia-modal-cuerpo">
                                     <p>
@@ -672,7 +672,7 @@
                                 <!-- Resumen de la Noticia./ -->
                                 <p class="noticia-modal-resumen text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <!-- Imgagen de la Noticia./ -->
-                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/city.jpg') : 'http://lorempixel.com/1280/720/city' }}" alt="City">
+                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/city.jpg') : 'https://lorempixel.com/1280/720/city' }}" alt="City">
                                 <!-- Cuerpo de la Noticia -->
                                 <div class="noticia-modal-cuerpo">
                                     <p>
@@ -713,7 +713,7 @@
                     <h4 class="modal-title">Título de la noticia</h4>
                 </div>
                 <div class="modal-body">
-                    <img class="img-responsive img-centered " src="{{ env('APP_ENV')=='local' ? asset('images/temp/animals.jpg') : 'http://lorempixel.com/1280/720/' }}" alt="Animals">
+                    <img class="img-responsive img-centered " src="{{ env('APP_ENV')=='local' ? asset('images/temp/animals.jpg') : 'https://lorempixel.com/1280/720/' }}" alt="Animals">
                     <br/>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
