@@ -105,7 +105,7 @@
                         <!-- Items -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/business.jpg') : 'https://lorempixel.com/1280/720/business' }}" alt="Business">
+                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/business.jpg') : 'http://lorempixel.com/1280/720/business' }}" alt="Business">
                                 <div class="carousel-caption">
                                     <div class="noticia-item" data-toggle="modal" data-target="#noticiaModal1">
                                         <div class="noticia-link">
@@ -128,7 +128,7 @@
                             </div>
 
                             <div class="item">
-                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/technics.jpg') : 'https://lorempixel.com/1280/720/technics' }}" alt="Technics">
+                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/technics.jpg') : 'http://lorempixel.com/1280/720/technics' }}" alt="Technics">
                                 <div class="carousel-caption">
                                     <div class="noticia-item">
                                         <div class="noticia-link" data-toggle="modal" data-target="#noticiaModal2">
@@ -151,7 +151,7 @@
                             </div>
 
                             <div class="item">
-                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/city.jpg') : 'https://lorempixel.com/1280/720/city' }}" alt="City">
+                                <img src="{{ env('APP_ENV')=='local' ? asset('images/temp/city.jpg') : 'http://lorempixel.com/1280/720/city' }}" alt="City">
                                 <div class="carousel-caption">
                                     <div class="noticia-item" data-toggle="modal" data-target="#noticiaModal3">
                                         <div class="noticia-link">
@@ -427,7 +427,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-12">
-                    {!! env('APP_ENV')!='local' ? '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.375416033793!2d-62.767180585218696!3d8.265379594052824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dcbf94693b5f6ad%3A0x2705e64c715d8eb3!2sAvenida+Atlantico%2C+Ciudad+Guayana+8050%2C+Bol%C3%ADvar!5e0!3m2!1ses-419!2sve!4v1488600424533" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>' : '' !!}
+                    {!! env('APP_ENV')!='local' ? '<iframe src="http://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.375416033793!2d-62.767180585218696!3d8.265379594052824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8dcbf94693b5f6ad%3A0x2705e64c715d8eb3!2sAvenida+Atlantico%2C+Ciudad+Guayana+8050%2C+Bol%C3%ADvar!5e0!3m2!1ses-419!2sve!4v1488600424533" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>' : '' !!}
                 </div>
             </div>
         </div>
@@ -453,7 +453,7 @@
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="https://facebook.com/beatriz.santoya" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="http://facebook.com/beatriz.santoya" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
                             <li><a href="#"><i class="fa fa-linkedin"></i></a>
                             </li>
@@ -469,7 +469,7 @@
                             <li><a href="#"><i class="fa fa-twitter"></i></a>
                             </li>
                             <li>
-                                <a href="https://facebook.com/dey.guzman.75" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="http://facebook.com/dey.guzman.75" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
                             <li><a href="#"><i class="fa fa-linkedin"></i></a>
                             </li>
@@ -485,12 +485,12 @@
                         <h4>Jesús Torres</h4>
                         <p class="text-muted">Cargo/Rol</p>
                         <ul class="list-inline social-buttons">
-                            <li><a href="https://github.com/jjtc07" target="_blank"><i class="fa fa-github"></i></a>
+                            <li><a href="http://github.com/jjtc07" target="_blank"><i class="fa fa-github"></i></a>
                             </li>
                             <li>
-                                <a href="https://facebook.com/jjtc07" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="http://facebook.com/jjtc07" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="https://linkedin.com/in/jes%C3%BAs-torres-6b9516142" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="http://linkedin.com/in/jes%C3%BAs-torres-6b9516142" target="_blank"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -502,12 +502,12 @@
                         <p class="text-muted">Cargo/Rol</p>
                         <ul class="list-inline social-buttons">
                             <li>
-                                <a href="https://github.com/Roiner994" target="_blank"><i class="fa fa-github"></i></a>
+                                <a href="http://github.com/Roiner994" target="_blank"><i class="fa fa-github"></i></a>
                             </li>
                             <li>
-                                <a href="https://facebook.com/Roiner.L" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <a href="http://facebook.com/Roiner.L" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="https://linkedin.com/in/roiner-hernandez-a6314894" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="http://linkedin.com/in/roiner-hernandez-a6314894" target="_blank"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -519,11 +519,11 @@
                         <p class="text-muted">Cargo/Rol</p>
                         <ul class="list-inline social-buttons">
                             <li>
-                                <a href="https://github.com/stalinscj" target="_blank"><i class="fa fa-github"></i></a>
+                                <a href="http://github.com/stalinscj" target="_blank"><i class="fa fa-github"></i></a>
                             </li>
-                            <li><a href="https://facebook.com/stalinscj" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <li><a href="http://facebook.com/stalinscj" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="https://linkedin.com/in/stalinscj" target="_blank"><i class="fa fa-linkedin" target="_blank"></i></a>
+                            <li><a href="http://linkedin.com/in/stalinscj" target="_blank"><i class="fa fa-linkedin" target="_blank"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -582,7 +582,7 @@
                                 <!-- Resumen de la Noticia./ -->
                                 <p class="noticia-modal-resumen text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <!-- Imgagen de la Noticia./ -->
-                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/business.jpg') : 'https://lorempixel.com/1280/720/business' }}" alt="Business">
+                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/business.jpg') : 'http://lorempixel.com/1280/720/business' }}" alt="Business">
                                 <!-- Cuerpo de la Noticia -->
                                 <div class="noticia-modal-cuerpo">
                                     <p>
@@ -627,7 +627,7 @@
                                 <!-- Resumen de la Noticia./ -->
                                 <p class="noticia-modal-resumen text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <!-- Imgagen de la Noticia./ -->
-                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/technics.jpg') : 'https://lorempixel.com/1280/720/technics' }}" alt="Technics">
+                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/technics.jpg') : 'http://lorempixel.com/1280/720/technics' }}" alt="Technics">
                                 <!-- Cuerpo de la Noticia -->
                                 <div class="noticia-modal-cuerpo">
                                     <p>
@@ -672,7 +672,7 @@
                                 <!-- Resumen de la Noticia./ -->
                                 <p class="noticia-modal-resumen text-muted">Lorem ipsum dolor sit amet consectetur.</p>
                                 <!-- Imgagen de la Noticia./ -->
-                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/city.jpg') : 'https://lorempixel.com/1280/720/city' }}" alt="City">
+                                <img class="img-responsive img-centered noticia-modal-imagen" src="{{ env('APP_ENV')=='local' ? asset('images/temp/city.jpg') : 'http://lorempixel.com/1280/720/city' }}" alt="City">
                                 <!-- Cuerpo de la Noticia -->
                                 <div class="noticia-modal-cuerpo">
                                     <p>
@@ -713,7 +713,7 @@
                     <h4 class="modal-title">Título de la noticia</h4>
                 </div>
                 <div class="modal-body">
-                    <img class="img-responsive img-centered " src="{{ env('APP_ENV')=='local' ? asset('images/temp/animals.jpg') : 'https://lorempixel.com/1280/720/' }}" alt="Animals">
+                    <img class="img-responsive img-centered " src="{{ env('APP_ENV')=='local' ? asset('images/temp/animals.jpg') : 'http://lorempixel.com/1280/720/' }}" alt="Animals">
                     <br/>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
