@@ -4,7 +4,6 @@
 <head>
     <!-- Meta, title, CSS, favicons, etc. -->
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -523,7 +522,7 @@
                             </li>
                             <li><a href="http://facebook.com/stalinscj" target="_blank"><i class="fa fa-facebook"></i></a>
                             </li>
-                            <li><a href="http://linkedin.com/in/stalinscj" target="_blank"><i class="fa fa-linkedin" target="_blank"></i></a>
+                            <li><a href="http://linkedin.com/in/stalinscj" target="_blank"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
