@@ -6,8 +6,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta name="description" content="Sitio Web de Ceidin.">
+
+    <meta name="twitter:card" value="summary">
+
+    <meta property="og:title" content="{{ config('app.name', 'Laravel') }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ url('/') }}" />
+    <meta property="og:image" content="{{ asset('images/header-xs.jpg') }}" />
+    <meta property="og:description" content="Sitio Web de Ceidin." />
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
