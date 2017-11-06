@@ -4,13 +4,19 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Padre extends Model
+class Alumno extends Model
 {
-    protected $table = 'padres';
+    protected $table = 'alumnos';
 
 	protected $fillable = [
-		'grado_instruccion',
-		'difunto',
+		'lugar_nacimiento',
+		'procedencia',
+		'nombre',
+		'nivel',
+		'representante_id',
+		'antecedentes_familiar_id',
+		'antecedentes_medico_id',
+		'otros_dato_id',
 		'datos_basico_id'
 	];
 
@@ -19,52 +25,8 @@ class Padre extends Model
 	    return $this->belongsTo(DatosBasico::class);
 	}
 
-	public function representantes(){
-	    return $this->belongsTo(Representante::class);
-	}
-
-	public function otrosDatos(){
-	    return $this->belongsTo(OtrosDato::class);
-	}
-
-	public function antecedentesFamiliares(){
-	    return $this->belongsTo(AntecedentesFamiliar::class);
-	}
-
-	public function antecedentesMedico(){
-	    return $this->belongsTo(AntecedentesMedico::class);
-	}
-
 	/*------------------------------/Relaciones-------------------------------*/
 	
-	/*--------------------- Bind Representantes ------------------------*/
-	public function getParentescoAttribute()
-	{
-	    return $this->representante->parentesco;
-	}
-	/*--------------------- /Bind de Representantes -----------------------*/
-
-	/*--------------------- Bind Otros Datos ------------------------*/
-	public function getParentescoAttribute()
-	{
-	    return $this->representante->parentesco;
-	}
-	/*--------------------- /Bind Otros Datos -----------------------*/
-
-	/*--------------------- Bind Antecedentes Medicos ------------------------*/
-	public function getParentescoAttribute()
-	{
-	    return $this->representante->parentesco;
-	}
-	/*--------------------- /Bind Antecedentes Medicos -----------------------*/
-
-	/*--------------------- Bind Antecedentes Familiares ------------------------*/
-	public function getParentescoAttribute()
-	{
-	    return $this->representante->parentesco;
-	}
-	/*--------------------- /Bind Antecedentes Familiares -----------------------*/
-
 	/*--------------------- Bind Datos Basicos ------------------------*/
 	public function getCedulaAttribute()
 	{

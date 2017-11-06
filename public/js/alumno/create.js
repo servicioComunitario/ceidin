@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$('#fecha_inicio, #fecha_fin').daterangepicker({
+	$('#fecha_nacimiento').daterangepicker({
 		locale: {
 	        format: "DD-MM-YYYY",
 	        separator: " - ",
@@ -34,12 +34,4 @@ $(document).ready(function() {
 
 	});
 
-	$('#fecha_fin').data('daterangepicker').setStartDate(moment(new Date()).add(1, 'years'));
-
-	$( "#fecha_inicio, #fecha_fin" ).change(function() {
-		var fechaInicio = moment($('#fecha_inicio').val(), "DD-MM-YYYY").format("Y");
-		var fechaFin = moment($('#fecha_fin').val(), "DD-MM-YYYY").format("Y");
-
-		$('#nombre').val(fechaInicio+"-"+fechaFin);
-	});
 });
