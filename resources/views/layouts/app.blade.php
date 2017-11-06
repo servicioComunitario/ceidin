@@ -15,7 +15,8 @@
     
     <!-- Icono-->
     <link rel="icon" type="image/png" href="{{ asset('images/birrete.ico') }}" />
-
+    <!-- Fuente Kaushan Script -->
+    <link href="{{ asset('css/kaushan-script.css') }}"" rel="stylesheet" type="text/css">
     <!-- Bootstrap CSS 3.3.7-->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- Font Awesome -->
