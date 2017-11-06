@@ -26,7 +26,7 @@ Route::group(['middleware' => 'bindings'], function (){
 
 	Auth::routes();
 
-	Route::get('/', function () { return view('welcome'); });
+	Route::get('/', function () { return view('web.portal'); });
 
 });
 /**************************** Rutas Públicas **********************************/

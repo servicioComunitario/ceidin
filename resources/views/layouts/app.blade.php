@@ -56,24 +56,57 @@
                     <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                         <div class="menu_section">
                             <ul class="nav side-menu">
-                                <li><a><i class="fa fa-home fa-fw"></i> Home <span class="fa fa-chevron-down"></span></a>
+                                {{-- Portal --}}
+                                <li>
+                                    <a href="{{ url('/') }}">
+                                        <i class="fa fa-laptop fa-fw"></i> 
+                                        Portal web 
+                                        <span class="fa fa-mail-reply"></span>
+                                    </a>
+                                </li>
+                                {{-- /.Portal --}}
+
+                                {{-- Home --}}
+                                <li>
+                                    <a>
+                                        <i class="fa fa-home fa-fw"></i> 
+                                        Home 
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
                                     <ul class="nav child_menu">
                                         <li><a href="index.html">Dashboard</a></li>
                                         <li><a href="index2.html">Dashboard2</a></li>
                                         <li><a href="index3.html">Dashboard3</a></li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-gears fa-fw"></i> Administración <span class="fa fa-chevron-down"></span></a>
+                                {{-- /.Home --}}
+
+                                {{-- Administración --}}
+                                <li>
+                                    <a>
+                                        <i class="fa fa-gears fa-fw"></i> 
+                                        Administración 
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('periodo.index') }}">Periodos Escolares</a></li>
                                     </ul>
                                 </li>
-                                <li><a><i class="fa fa-lock fa-fw"></i> Seguridad <span class="fa fa-chevron-down"></span></a>
+                                {{-- /.Administración --}}
+                                
+                                {{-- Seguridad --}}
+                                <li>
+                                    <a>
+                                        <i class="fa fa-lock fa-fw"></i> 
+                                        Seguridad 
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('acceso.index') }}">Accesos</a></li>
                                         <li><a href="{{ route('rol.index') }}">Roles</a></li>
                                     </ul>
                                 </li>
+                                {{-- /.Seguridad --}}
                             </ul>
                         </div>
                     </div>
