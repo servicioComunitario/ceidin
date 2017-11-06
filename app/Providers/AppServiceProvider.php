@@ -23,6 +23,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $request = $this->app['request'];
+
+        if(!$request->secure() && env('APP_ENV'!='local')){
+            $this->app['request']->server->set('HTTPS', true);
+        }
     }
 }
