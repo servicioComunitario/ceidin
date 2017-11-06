@@ -22,11 +22,11 @@
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Fuentes -->
-    <link href="{{ asset('css/font-awesome.min.css') }}"" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/kaushan-script.css') }}"" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/kaushan-script.css') }}" rel="stylesheet" type="text/css">
 
     <!-- Portal CSS -->
-    <link href="{{ asset('css/portal.css') }}"" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/portal.css') }}" rel="stylesheet" type="text/css">
 
 </head>
 
