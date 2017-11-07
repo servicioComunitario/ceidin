@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Alumno;
+use App\AntecedentesMedico;
 use Illuminate\Http\Request;
 
-class AlumnoController extends Controller
+class AntecedentesMedicoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,7 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        $alumnos = Alumno::all();
-
-        return view("alumno.index")->with("alumnos", $alumnos);
+        //
     }
 
     /**
@@ -43,10 +41,10 @@ class AlumnoController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  \App\AntecedentesMedico  $antecedentesMedico
      * @return \Illuminate\Http\Response
      */
-    public function show(Alumno $alumno)
+    public function show(AntecedentesMedico $antecedentesMedico)
     {
         //
     }
@@ -54,10 +52,10 @@ class AlumnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  \App\AntecedentesMedico  $antecedentesMedico
      * @return \Illuminate\Http\Response
      */
-    public function edit(Alumno $alumno)
+    public function edit(AntecedentesMedico $antecedentesMedico)
     {
         //
     }
@@ -66,10 +64,10 @@ class AlumnoController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Alumno  $alumno
+     * @param  \App\AntecedentesMedico  $antecedentesMedico
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Alumno $alumno)
+    public function update(Request $request, AntecedentesMedico $antecedentesMedico)
     {
         //
     }
@@ -77,10 +75,10 @@ class AlumnoController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Alumno  $alumno
+     * @param  \App\AntecedentesMedico  $antecedentesMedico
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Alumno $alumno)
+    public function destroy(AntecedentesMedico $antecedentesMedico)
     {
         //
     }

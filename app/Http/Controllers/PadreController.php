@@ -54,7 +54,7 @@ class PadreController extends Controller
                 $padre->datos_basico_id = $datos_basico->id;
                 $padre->save();            
             DB::commit();
-            session()->flash('msg_success', "El paddre '$padre->nombre' '$padre->apellido' ha sido creado.");
+            session()->flash('msg_success', "El padre '$padre->nombre' '$padre->apellido' ha sido creado.");
         } catch (Exception $e) {
             DB::rollback();
             session()->flash('msg_danger', $e->getMessage());

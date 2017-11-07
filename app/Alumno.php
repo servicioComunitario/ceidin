@@ -21,71 +21,165 @@ class Alumno extends Model
 	];
 
 	/*-------------------------------Relaciones-------------------------------*/
-	public function datosBasico(){
-	    return $this->belongsTo(DatosBasico::class);
-	}
+		public function datosBasico(){
+		    return $this->belongsTo(DatosBasico::class);
+		}
 
-	/*------------------------------/Relaciones-------------------------------*/
-	
-	/*--------------------- Bind Datos Basicos ------------------------*/
-	public function getCedulaAttribute()
-	{
-	    return $this->datosBasico->cedula;
-	}
+		public function representantes(){
+		    return $this->belongsTo(Representante::class);
+		}
 
-	public function getNombreAttribute()
-	{
-	    return $this->datosBasico->nombre;
-	}
+		public function otrosDatos(){
+		    return $this->belongsTo(OtrosDato::class);
+		}
 
-	public function getNombre2Attribute()
-	{
-	    return $this->datosBasico->nombre2;
-	}
+		public function antecedentesFamiliares(){
+		    return $this->belongsTo(AntecedentesFamiliar::class);
+		}
 
-	public function getApellidoAttribute()
-	{
-	    return $this->datosBasico->apellido;
-	}
+		public function antecedentesMedico(){
+		    return $this->belongsTo(AntecedentesMedico::class);
+		}
 
-	public function getApellido2Attribute()
-	{
-	    return $this->datosBasico->apellido2;
-	}
+		/*------------------------------/Relaciones-------------------------------*/
+		
+		/*--------------------- Bind Representantes ------------------------*/
+		public function getParentescoAttribute()
+		{
+		    return $this->representante->parentesco;
+		}
+		/*--------------------- /Bind de Representantes -----------------------*/
 
-	public function getSexoAttribute()
-	{
-	    return $this->datosBasico->sexo;
-	}
+		/*--------------------- Bind Otros Datos ------------------------*/
+		public function getContuctasSocioemocionalesAttribute()
+		{
+		    return $this->otrosDatosantecedenteMedico->contuctas_socioemocionales;
+		}
+		/*--------------------- /Bind Otros Datos -----------------------*/
 
-	public function getFechaNacimientoAttribute()
-	{
-	    return Carbon::parse($this->datosBasico->fecha_nacimiento)->format('d-m-Y');
-	}
+		/*--------------------- Bind Antecedentes Medicos ------------------------*/
+		public function getEmbarazoUnicoAttribute()
+		{
+		    return $this->antecedenteMedico->embarazo_unico;
+		}
 
-	public function getOcupacionAttribute()
-	{
-	    return $this->datosBasico->ocupacion;
-	}
+		public function getPartoNormalAttribute()
+		{
+		    return $this->antecedenteMedico->parto_normal;
+		}
 
-	public function getDireccionAttribute()
-	{
-	    return $this->datosBasico->direccion;
-	}
+		public function getPrematuroAttribute()
+		{
+		    return $this->antecedenteMedico->prematuro;
+		}
 
-	public function getNacionalidadAttribute()
-	{
-	    return $this->datosBasico->nacionalidad;
-	}
+		public function getProblemaDurantePartoAttribute()
+		{
+		    return $this->antecedenteMedico->problema_durante_parto;
+		}
 
-	public function getTelefonoCelularAttribute()
-	{
-	    return $this->datosBasico->telefono_celular;
-	}
+		public function getDesarrolloPrimerAnioAttribute()
+		{
+		    return $this->antecedenteMedico->desarrollo_primer_anio;
+		}
 
-	public function getTelefonoFijoAttribute()
-	{
-	    return $this->datosBasico->telefono_fijo;
-	}
-	/*--------------------- /Bind de Datos Basicos -----------------------*/
+		public function getDesarrolloPosteriorAttribute()
+		{
+		    return $this->antecedenteMedico->desarrollo_posterior;
+		}
+
+		public function getProblemaLenguajeAttribute()
+		{
+		    return $this->antecedenteMedico->problema_lenguaje;
+		}
+
+		public function getEdadControlEsfinteresAttribute()
+		{
+		    return $this->antecedenteMedico->edad_control_esfinteres;
+		}
+
+		public function getAlergiasAttribute()
+		{
+		    return $this->antecedenteMedico->alergias;
+		}
+
+		public function getMedicamentoFiebreAttribute()
+		{
+		    return $this->antecedenteMedico->medicamento_fiebre;
+		}
+
+		public function getEmfermedadesAttribute()
+		{
+		    return $this->antecedenteMedico->emfermedades;
+		}
+		/*--------------------- /Bind Antecedentes Medicos -----------------------*/
+
+		/*--------------------- Bind Antecedentes Familiares ------------------------*/
+		public function getParejaArmonicaAttribute()
+		{
+		    return $this->antecedenteFamiliar->pareja_armonica;
+		}
+		/*--------------------- /Bind Antecedentes Familiares -----------------------*/
+
+		/*--------------------- Bind Datos Basicos ------------------------*/
+		public function getCedulaAttribute()
+		{
+		    return $this->datosBasico->cedula;
+		}
+
+		public function getNombreAttribute()
+		{
+		    return $this->datosBasico->nombre;
+		}
+
+		public function getNombre2Attribute()
+		{
+		    return $this->datosBasico->nombre2;
+		}
+
+		public function getApellidoAttribute()
+		{
+		    return $this->datosBasico->apellido;
+		}
+
+		public function getApellido2Attribute()
+		{
+		    return $this->datosBasico->apellido2;
+		}
+
+		public function getSexoAttribute()
+		{
+		    return $this->datosBasico->sexo;
+		}
+
+		public function getFechaNacimientoAttribute()
+		{
+		    return Carbon::parse($this->datosBasico->fecha_nacimiento)->format('d-m-Y');
+		}
+
+		public function getOcupacionAttribute()
+		{
+		    return $this->datosBasico->ocupacion;
+		}
+
+		public function getDireccionAttribute()
+		{
+		    return $this->datosBasico->direccion;
+		}
+
+		public function getNacionalidadAttribute()
+		{
+		    return $this->datosBasico->nacionalidad;
+		}
+
+		public function getTelefonoCelularAttribute()
+		{
+		    return $this->datosBasico->telefono_celular;
+		}
+
+		public function getTelefonoFijoAttribute()
+		{
+		    return $this->datosBasico->telefono_fijo;
+		}
+		/*--------------------- /Bind de Datos Basicos -----------------------*/
 }

@@ -26,4 +26,9 @@ class DatosBasico extends Model
     {
         return $this->hasOne(Padre::class);
     }
+
+    public function representante()
+    {
+        return $this->hasOne(Representante::class);
+    }
 }

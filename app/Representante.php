@@ -4,14 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Padre extends Model
+class Representante extends Model
 {
-    protected $table = 'padres';
+    protected $table = 'representantes';
 
 	protected $fillable = [
-		'grado_instruccion',
-		'difunto',
-		'datos_basico_id'
+		'parentesco'
 	];
 
 	/*-------------------------------Relaciones-------------------------------*/
