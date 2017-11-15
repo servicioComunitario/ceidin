@@ -123,7 +123,7 @@
                                                     </span>
                                                 </div>
                                             </div>
-                                            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</h4>
+                                            <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus, harum.</h4>
                                             <p>
                                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam veritatis error nihil? Nemo deserunt, velit cupiditate consequatur, adipisci deleniti et.
                                                 <span class="pull-right"><b>09-02-2011</b></span>
@@ -208,7 +208,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <b>Este es título de una noticia</b>
+                                <b>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, quae.</b>
                                 <p>
                                     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic nostrum aut neque libero consequatur dolor, sed adipisci ipsam. Et, unde!
                                     <span class="pull-right"><i>09-02-2011</i></span>

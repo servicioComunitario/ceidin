@@ -81,6 +81,20 @@
                                 </li>
                                 {{-- /.Home --}}
 
+                                {{-- Editar Portal Web --}}
+                                <li>
+                                    <a>
+                                        <i class="fa fa-newspaper-o fa-fw"></i> 
+                                        Editar Portal Web 
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{ route('noticia.index') }}">Noticias</a></li>
+                                        <li><a href="{{ route('padre.index') }}">Secciones</a></li>
+                                    </ul>
+                                </li>
+                                {{-- /.Editar Portal Web --}}
+
                                 {{-- Administración --}}
                                 <li>
                                     <a>

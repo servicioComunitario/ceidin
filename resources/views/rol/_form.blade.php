@@ -29,7 +29,7 @@
                     </div>
                     {{-- Descripción del Rol --}}
                     <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="nombre"><span class="required">*</span> Descripción:</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="descripcion"><span class="required">*</span> Descripción:</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                             <input type="text" name="descripcion" class="form-control col-md-7 col-xs-12" id="descripcion" placeholder="Descripción del rol" value="{{ $rol->descripcion or old('descripcion') }}">
                             @if ($errors->has('descripcion'))

@@ -92,8 +92,6 @@ class RolController extends Controller
             ->with('datosBasico')
             ->get();
 
-        //dd($usuarios);
-
         return view("rol.edit")->with([
             "rol"      => $rol,
             "usuarios" => $usuarios

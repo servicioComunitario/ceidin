@@ -4,12 +4,15 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateRolRequest extends FormRequest
+class CreateNoticiaRequest extends FormRequest
 {
     protected $reglas = [
-        'nombre'      => 'required|unique:roles',
-        'descripcion' => 'required',
-        'activo'      => 'required'
+        'titulo'    => 'required|max:80',
+        'resumen'   => 'required|max:160',
+        'contenido' => 'required',
+        'imagen'    => 'required|image',
+        'principal' => 'required',
+        'orden'     => 'required|integer|min:-32767|max:32767'
     ];
 
     /**
