@@ -47,8 +47,6 @@
                         <div class="profile_info menu_section">
                             <h3>
                                 {{ Auth::user()->email }}
-                                {{ var_dump(Auth::user()->sexo) }}
-                                {{ Auth::user()->sexo=='M' ? 'MASCULINO' : 'FEMENINO'}}
                             </h3>
                         </div>
                     </div>
