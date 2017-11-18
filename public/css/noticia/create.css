@@ -22,3 +22,8 @@
     cursor: inherit;
     display: block;
 }
+
+#img-preview {
+    max-width: 750px;
+    max-height: 422px;
+}

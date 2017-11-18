@@ -42,7 +42,7 @@ Route::group(['middleware' => 'bindings'], function (){
 
 	Auth::routes();
 
-	Route::get('/', function () { return view('web.portal'); });
+	Route::get('/', 'PortalController@index')->name('portal');
 
 });
 /**************************** Rutas Públicas **********************************/

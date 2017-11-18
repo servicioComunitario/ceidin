@@ -19,7 +19,9 @@ class NoticiaController extends Controller
      */
     public function index()
     {
-        $noticias = Noticia::all()->sortByDesc('fecha');
+        $noticias = Noticia::with('usuario')
+            ->orderBy('fecha', 'desc')
+            ->get();
 
         return view("noticia.index")->with("noticias", $noticias);
     }
@@ -58,7 +60,7 @@ class NoticiaController extends Controller
             $noticia->save();
 
             Image::make($request->imagen)
-                ->resize(640, 360)
+                ->resize(750, 422)
                 ->save($noticia->ruta_imagen);
 
             DB::commit();
@@ -74,12 +76,18 @@ class NoticiaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Noticia  $noticia
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function show(Noticia $noticia)
+    public function show(Request $request)
     {
-        return redirect()->route('noticia.index');
+        //Se hizo así xq el inflector transforma {noticia}  a {noticium} en la creación dinámica de las rutas con recursos
+        $noticia = Noticia::with('usuario.datosBasico')
+            ->find($request->id);
+
+        $noticia->imagen_ruta = asset($noticia->ruta_imagen);
+
+        return response()->json($noticia);
     }
 
     /**
@@ -120,7 +128,7 @@ class NoticiaController extends Controller
                 $noticia->imagen = "$noticia->id.{$request->imagen->getClientOriginalExtension()}";
                 $noticia->save();
                 Image::make($request->imagen)
-                    ->resize(640, 360)
+                    ->resize(750, 422)
                     ->save($noticia->ruta_imagen);
             }
 
@@ -139,7 +147,7 @@ class NoticiaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Noticia  $noticia
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function destroy(Request $request)

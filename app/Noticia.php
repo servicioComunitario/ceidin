@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 class Noticia extends Model
@@ -27,15 +28,8 @@ class Noticia extends Model
         return 'images/noticias/'.$this->imagen;
     }
 
-    public function guardarImagen($imagen=NULL)
+    public function getFechaAttribute($fecha)
     {
-        if(!$imagen){
-            $imagen = $this->$imagen;
-        }
-
-        
-
-        dd($imagen);
-
+        return Carbon::parse($fecha)->format('d-m-Y');
     }
 }

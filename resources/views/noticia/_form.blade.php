@@ -49,7 +49,7 @@
                             <input type="text" class="form-control" name="imagen-nombre" required="required" readonly value="{!!  $noticia->imagen !!}">
                         </div>
                         <div class="col-xs-12">
-                            <img class="img img-rounded img-thumbnail" id='img-preview'/>
+                            <img class="img img-rounded img-thumbnail" id='img-preview' src="{{ asset($noticia->ruta_imagen) }}" />
                         </div>
                     </div>
                     {{-- Principal Noticia --}}
