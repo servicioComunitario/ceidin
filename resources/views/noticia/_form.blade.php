@@ -31,7 +31,7 @@
                     <div class="form-group">
                         <label class="col-xs-12" for="resumen"><span class="required">*</span> Resumen:</label>
                         <div class="col-xs-12">
-                            <textarea id="resumen" required="required" name="resumen" placeholder="Resumen del noticia (Mámimo 20 palabras)" class="resizable_textarea form-control" style="height: 60px">{!!  $noticia->resumen or old('resumen') !!}</textarea>
+                            <textarea id="resumen" required="required" name="resumen" placeholder="Resumen del noticia (Máximo 20 palabras)" class="resizable_textarea form-control" style="height: 60px">{!!  $noticia->resumen or old('resumen') !!}</textarea>
                             @if ($errors->has('resumen'))
                                 <span class="text-danger">{{ $errors->first('resumen') }}</span>
                             @endif
