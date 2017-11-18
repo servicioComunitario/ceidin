@@ -48,7 +48,7 @@
                             <h3>
                                 {{ Auth::user()->email }}
                                 {{ var_dump(Auth::user()->sexo) }}
-                                {{ $usuario->sexo=='M' ? 'MASCULINO' : 'FEMENINO'}}
+                                {{ Auth::user()->sexo=='M' ? 'MASCULINO' : 'FEMENINO'}}
                             </h3>
                         </div>
                     </div>
