@@ -13,6 +13,10 @@ Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
  	Route::resource('acceso', 'AccesoController');
 	Route::resource('rol', 'RolController');
 
+	//DOCENTE
+	Route::resource('docente', 'DocenteController');
+	Route::resource('docente_periodo', 'DocentePeriodoController');
+
 });
 /**************************** Rutas Privadas **********************************/
 /*----------------------------------------------------------------------------*/
