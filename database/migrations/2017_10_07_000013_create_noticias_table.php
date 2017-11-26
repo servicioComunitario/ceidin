@@ -28,7 +28,7 @@ class CreateNoticiasTable extends Migration
             $table->text('resumen');
             $table->text('contenido');
             $table->text('imagen');
-            $table->date('fecha');
+            $table->dateTime('fecha');
             $table->boolean('principal');
             $table->tinyInteger('orden');
             $table->integer('usuario_id')->unsigned();

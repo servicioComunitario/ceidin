@@ -30,7 +30,7 @@ class CreateDatosBasicosTable extends Migration
             $table->text('apellido');
             $table->text('apellido2')->nullable();
             $table->char('sexo', 1);
-            $table->text('fecha_nacimiento');
+            $table->dateTime('fecha_nacimiento');
             $table->text('ocupacion')->nullable();
             $table->text('direccion')->nullable();
             $table->text('nacionalidad')->nullable();

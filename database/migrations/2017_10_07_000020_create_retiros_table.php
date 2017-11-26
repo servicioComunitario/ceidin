@@ -24,7 +24,7 @@ class CreateRetirosTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->date('fecha');
+            $table->dateTime('fecha');
             $table->text('motivo');
             $table->integer('inscripcion_id')->unsigned();
             $table->integer('usuario_id')->unsigned();
