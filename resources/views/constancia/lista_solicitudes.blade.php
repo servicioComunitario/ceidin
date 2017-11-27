@@ -20,8 +20,8 @@
 
 
 
-    @include('constancia._modal',['bandera' => $bandera])
-    @include('constancia._table',['solicitudes' => $solicitudes, 'bandera' => $bandera])
+    {{-- @include('rol._modal') --}}
+    @include('constancia._table',['solicitudes' => $solicitudes])
 @endsection
 
 @section('js')

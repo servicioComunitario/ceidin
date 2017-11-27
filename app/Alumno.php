@@ -182,4 +182,12 @@ class Alumno extends Model
 		    return $this->datosBasico->telefono_fijo;
 		}
 		/*--------------------- /Bind de Datos Basicos -----------------------*/
+
+		public static function edadAlumno($fecha)
+		{
+			$date = date('Y-m-d');//la fecha del computador
+            $diff = abs(strtotime($date) - strtotime($fecha));
+            $edad =  intval ($diff / (365*60*60*24));
+            return $edad;
+		}
 }

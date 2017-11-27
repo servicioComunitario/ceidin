@@ -17,12 +17,12 @@
 @section('contenido')
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-			<h1 class="">Editar Docente</h1>
+			<h1 class="">Editar Rol</h1>
 		</div>
 	</div>
-    @include('docente._form', ['docente' => $docente, 'usuarios' => $usuarios])
+    @include('rol._form', ['rol' => $rol, 'usuarios' =>$usuarios])
 
-    {{-- <div class="row">
+    <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <div class="x_panel">
                 <div class="x_title">
@@ -65,7 +65,7 @@
             </div>
         </div>
     </div>
- --}}
+
     <div class="modal fade modal-error403" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-sm">
             <div class="modal-content">

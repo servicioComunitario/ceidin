@@ -8,10 +8,10 @@
 @section('contenido')
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-			<h1 class="">Crear Rol</h1>
+			<h1 class="">Solicitar Constancia</h1>
 		</div>
 	</div>
-	@include('rol._form', ['rol' => $rol])
+	@include('constancia._form', ['alumnos' => $alumnos])
 @endsection
 
 @section('js')

@@ -14,14 +14,11 @@
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-            <h1 class="">Generar constancias de inscripcion</h1>
+            <h1 class="">Listado de Alumnos</h1>
         </div>
     </div>
 
-
-
-    @include('constancia._modal',['bandera' => $bandera])
-    @include('constancia._table',['solicitudes' => $solicitudes, 'bandera' => $bandera])
+    @include('layouts.alumno._table', ['alumnos' => $alumnos,'tipo' => $tipo])
 @endsection
 
 @section('js')
@@ -40,7 +37,8 @@
 	<script src={{ asset('datatable/datatables.net-scroller/js/dataTables.scroller.min.js') }}></script>
 	<script src={{ asset('datatable/jszip/dist/jszip.min.js') }}></script>
 
-	<script src={{ asset('js/constancia/index.js') }}></script>
+	<!-- Creacion -->
+	<script src="{{ asset('js/alumno/index.js') }}"></script>
 
 @endsection
 

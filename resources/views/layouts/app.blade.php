@@ -101,9 +101,35 @@
                                         <li><a href="{{ route('periodo.index') }}">Periodos Escolares</a></li>
                                         <li><a href="{{ route('padre.index') }}">Padres</a></li>
                                         <li><a href="{{ route('usuario.index') }}">Usuarios</a></li>
+                                        <li><a href="{{ route('admin.constancia.representante') }}">Constancias</a></li>
+                                        <li><a href="{{ route('admin.retiro.representante') }}">Retiros</a></li>
+                                        <li>
+                                            <a>
+                                                Solicitudes 
+                                                <span class="fa fa-chevron-down"></span>
+                                            </a>
+                                            <ul class="nav child_menu">
+                                                <li><a href="{{ route('constancia.index') }}">Constancias</a></li>
+                                                <li><a href="{{ route('retiro.index') }}">Retiros</a></li>
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </li>
                                 {{-- /.Administración --}}
+
+                                {{-- Solicitudes --}}
+                                <li>
+                                    <a>
+                                        <i class="fa fa-file-text-o fa-fw"></i> 
+                                        Solicitudes 
+                                        <span class="fa fa-chevron-down"></span>
+                                    </a>
+                                    <ul class="nav child_menu">
+                                        <li><a href="{{ route('constancia.solicitudes') }}">Constancias</a></li>
+                                        <li><a href="{{ route('retiro.solicitudes') }}">Retiros</a></li>
+                                    </ul>
+                                </li>
+                                {{-- /.Solicitudes --}}
                                 
                                 {{-- Seguridad --}}
                                 <li>

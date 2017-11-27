@@ -6,16 +6,13 @@
                 <h4 class="modal-title">Confirmar Eliminación</h4>
             </div>
             <div class="modal-body">
-                <p>¿Desea Aprobar esta solicituda?</p>
+                <p>¿Realmente desea eliminar este registro?</p>
             </div>
             <div class="modal-footer">
                 <div class="text-center">
-                    @if($bandera=='aprobar_retiro')
-                        <form action={{ route('retiro.aprobar') }} method="POST">
-                    @else
-                        <form action={{ route('constancia.aprobar') }} method="POST">
-                    @endif
+                    <form action={{ route('colaboracion.destroy', '-1') }} method="POST">
                         {{ csrf_field() }}
+                        {{ method_field('DELETE') }}
                         <input type="hidden" id="id_eliminar" name="id">
                         <button type="button" class="btn btn-success" data-dismiss="modal" onclick="$('#id_eliminar').removeAttr('value')">Cancelar</button>
                         <button type="submit" class="btn btn-danger">Aceptar</button>

@@ -2,7 +2,7 @@
     <div class="col-md-12 col-sm-12 col-xs-12">
         <div class="x_panel">
             <div class="x_title">
-                <h2>Solicitud de constancia Periodo</h2>
+                <h2>Solicitud de retiro</h2>
                 <ul class="nav navbar-right panel_toolbox">
                     <li class="pull-right"><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
                 </ul>
@@ -14,11 +14,11 @@
                         <div class="form-group has-feedback{{ $errors->has('docente_id') ? ' has-error' : '' }}">
                             <select class="form-control" style="font-family: 'FontAwesome', Helvetica;" name="alumno_id">
                                 @foreach($alumnos as $alumno)
-                                <option value={{$alumno->datosBasico->id}}> {{$alumno->datosBasico->nombre}} </option>
+                                <option value={{$alumno->id}}> {{$alumno->datosBasico->nombre}} </option>
                                 @endforeach
                             </select>
                         </div>
-                
+                        <input type="hidden" name="retiro" value="true">
                         <div>
                             <button class="btn btn-default submit" >Solicitar</button>
                         </div>
