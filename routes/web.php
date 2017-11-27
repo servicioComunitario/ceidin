@@ -1,13 +1,15 @@
 <?php
-
 /**************************** Rutas Privadas **********************************/
 Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
  	
  	// EDITAR PORTAL WEB
-	Route::resource('noticia', 'NoticiaController');
+	Route::resource('noticia', 'NoticiaController', ['except' => ['show']]);
 
  	// ADMINISTRCIÓN
 	Route::resource('periodo', 'PeriodoController');
+	Route::resource('usuario', 'UsuarioController', ['except' => [
+	    'edit', 'update'
+	]]);
 
 	// SEGURIDAD
  	Route::resource('acceso', 'AccesoController');
@@ -37,6 +39,10 @@ Route::group(['middleware' => ['auth', 'bindings']], function (){
 
 	//Route::resource('inscripcion', 'InscripcionController');
 
+	Route::resource('usuario', 'UsuarioController', ['only' => [
+	    'edit', 'update'
+	]]);
+
 
 });
 /*************************** Rutas Protegidas *********************************/
@@ -47,6 +53,8 @@ Route::group(['middleware' => 'bindings'], function (){
 	Auth::routes();
 
 	Route::get('/', 'PortalController@index')->name('portal');
+	
+	Route::resource('noticia', 'NoticiaController', ['only' => ['show']]);
 
 });
 /**************************** Rutas Públicas **********************************/

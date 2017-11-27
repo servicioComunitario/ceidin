@@ -25,8 +25,8 @@ class CreatePeriodosTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->text('nombre');
-            $table->date('fecha_inicio');
-            $table->date('fecha_fin');
+            $table->dateTime('fecha_inicio');
+            $table->dateTime('fecha_fin');
             $table->text('estado');
         
             $table->timestamps();

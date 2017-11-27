@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -43,7 +44,7 @@ class Usuario extends Authenticatable
 
     /*-------------------------------Relaciones-------------------------------*/
     public function datosBasico(){
-        return $this->belongsTo(DatosBasico::class);
+        return $this->belongsTo(DatosBasico::class)->withDefault();
     }
 
     public function rol(){
@@ -104,7 +105,7 @@ class Usuario extends Authenticatable
 
     public function getFechaNacimientoAttribute()
     {
-        return Carbon::parse($this->datosBasico->fecha_nacimiento)->format('d-m-Y');
+        return $this->datosBasico->fecha_nacimiento ? Carbon::parse($this->datosBasico->fecha_nacimiento)->format('d-m-Y'):null;
     }
 
     public function getOcupacionAttribute()

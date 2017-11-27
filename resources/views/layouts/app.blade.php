@@ -100,6 +100,7 @@
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('periodo.index') }}">Periodos Escolares</a></li>
                                         <li><a href="{{ route('padre.index') }}">Padres</a></li>
+                                        <li><a href="{{ route('usuario.index') }}">Usuarios</a></li>
                                     </ul>
                                 </li>
                                 {{-- /.Administración --}}

@@ -24,7 +24,7 @@ class CreateInscripcionesTable extends Migration
         Schema::create($this->set_schema_table, function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->date('fecha');
+            $table->dateTime('fecha');
             $table->text('estatus');
             $table->tinyInteger('fotos');
             $table->tinyInteger('partida_nacimiento');
@@ -37,7 +37,7 @@ class CreateInscripcionesTable extends Migration
             $table->float('talla_salida')->nullable();
             $table->float('peso_salida')->nullable();
             $table->text('cedula_representante');
-            $table->date('fecha_validacion');
+            $table->dateTime('fecha_validacion');
             $table->integer('alumno_id')->unsigned();
             $table->integer('usuario_id')->unsigned();
             $table->integer('docente_periodo_docente_id')->unsigned();
