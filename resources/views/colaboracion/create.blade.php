@@ -12,7 +12,7 @@
 			<h1 class="">Registrar Docente</h1>
 		</div>
 	</div>
-	@include('docente._form', ['docente' => $docente, 'usuarios' => $usuarios])
+	@include('colaboracion._form', ['colaboracion' => $colaboracion])
 @endsection
 
 @section('js')

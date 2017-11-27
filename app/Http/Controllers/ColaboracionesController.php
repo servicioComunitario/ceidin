@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Docente;
-use App\DatosBasico;
-use App\Usuario;
+use App\Colaboracion;
 
-class DocenteController extends Controller
+class ColaboracionesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,8 @@ class DocenteController extends Controller
      */
     public function index()
     {
-        $docentes= Docente::all();
-        return view('docente.index')->with('docentes',$docentes);
+        $colaboraciones= Colaboracion::all();
+        return view('colaboracion.index')->with('colaboraciones',$colaboraciones);
     }
 
     /**
@@ -27,11 +25,8 @@ class DocenteController extends Controller
      */
     public function create()
     {
-        $docente = new Docente();
-        $docentes=Docente::all();
-        $docentes=Docente::arrayDocente($docentes);
-        $usuarios=Usuario::whereNotIn('datos_basico_id',$docentes)->get();
-        return view('docente.create')->with(['docente' => $docente, 'usuarios' => $usuarios]);
+        $colaboracion = new Colaboracion();
+        return view('colaboracion.create')->with(['colaboracion' => $colaboracion]);
     }
 
     /**
@@ -42,16 +37,15 @@ class DocenteController extends Controller
      */
     public function store(Request $request)
     {
-        
         try{
-            $docente=Docente::create($request->all());
+            $colaboracion=Colaboracion::create($request->all());
             
-            session()->flash('msg_success', "El Doncente '$docente->datosBasico->nombre' ha sido creado.");
+            session()->flash('msg_success', "La colaboracion ha sido creado.");
         } catch (Exception $e) {
             session()->flash('msg_danger', $e->getMessage());
         }
 
-        return redirect()->route('docente.index');
+        return redirect()->route('colaboracion.index');
     }
 
     /**
@@ -73,12 +67,8 @@ class DocenteController extends Controller
      */
     public function edit($id)
     {
-        $docente=Docente::findOrFail($id);
-        $docentes=Docente::all();
-        $docentes=Docente::arrayDocente($docentes);
-        $docentes=Docente::docenteEditar($docentes,$docente->datos_basico_id);
-        $usuarios=Usuario::whereNotIn('datos_basico_id',$docentes)->get();
-        return view('docente.edit')->with(['docente' => $docente, 'usuarios' => $usuarios]);
+        $colaboracion=Colaboracion::findOrFail($id);
+        return view('colaboracion.edit')->with(['colaboracion' => $colaboracion]);
     }
 
     /**
@@ -91,17 +81,17 @@ class DocenteController extends Controller
     public function update(Request $request, $id)
     {
         try{
-            $docente=Docente::findOrFail($id);
-            $docente->datos_basico_id=$request['datos_basico_id'];
-            $docente->estatus=$request['estatus'];
-            $docente->save();
+            $colaboracion = Colaboracion::FindOrFail($id);
+            $input = $request->all();
+            $colaboracion->fill($input)->save();
+            $colaboracion->save();
             
-            session()->flash('msg_success', "El Doncente '$dato_basico->nombre' ha sido editado correctamente.");
+            session()->flash('msg_success', "La colaboracion ha sido editada correctamente.");
         } catch (Exception $e) {
             session()->flash('msg_danger', $e->getMessage());
         }
 
-        return redirect()->route('docente.index');
+        return redirect()->route('colaboracion.index');
     }
 
     /**
@@ -113,15 +103,15 @@ class DocenteController extends Controller
     public function destroy(Request $request)
     {
         try {
-            $docente = Docente::findOrFail($request->id);
+            $colaboracion = Colaboracion::findOrFail($request->id);
 
-            $docente->delete();
+            $colaboracion->delete();
 
-            session()->flash('msg_danger', "El docente '$docente->nombre' ha sido eliminado.");
+            session()->flash('msg_danger', "La colaboracion ha sido eliminada.");
         } catch (Exception $e) {
             session()->flash('msg_danger', $e->getMessage());
         }
 
-        return redirect()->route('docente.index');
+        return redirect()->route('colaboracion.index');
     }
 }

@@ -14,14 +14,14 @@
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-            <h1 class="">Generar constancias de inscripcion</h1>
+            <h1 class="">Retiros</h1>
         </div>
     </div>
 
 
 
-    @include('constancia._modal',['bandera' => $bandera])
-    @include('constancia._table',['solicitudes' => $solicitudes, 'bandera' => $bandera])
+    @include('retiro._modal')
+    @include('retiro._table',['retiros' => $retiros, 'bandera' => $bandera])
 @endsection
 
 @section('js')

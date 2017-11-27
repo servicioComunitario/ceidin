@@ -10,11 +10,7 @@
             </div>
             <div class="modal-footer">
                 <div class="text-center">
-                    @if($bandera=='aprobar_retiro')
-                        <form action={{ route('retiro.aprobar') }} method="POST">
-                    @else
-                        <form action={{ route('constancia.aprobar') }} method="POST">
-                    @endif
+                    <form action={{ route('constancia.aprobar') }} method="POST">
                         {{ csrf_field() }}
                         <input type="hidden" id="id_eliminar" name="id">
                         <button type="button" class="btn btn-success" data-dismiss="modal" onclick="$('#id_eliminar').removeAttr('value')">Cancelar</button>

@@ -17,10 +17,10 @@
 @section('contenido')
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-			<h1 class="">Editar Docente</h1>
+			<h1 class="">Editar Colaboracion</h1>
 		</div>
 	</div>
-    @include('docente._form', ['docente' => $docente, 'usuarios' => $usuarios])
+    @include('colaboracion._form', ['colaboracion' => $colaboracion])
 
     {{-- <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
