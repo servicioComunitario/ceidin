@@ -17,24 +17,6 @@ Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
 	Route::resource('docente', 'DocenteController');
 	Route::resource('docente_periodo', 'DocentePeriodoController');
 
-});
-/**************************** Rutas Privadas **********************************/
-/*----------------------------------------------------------------------------*/
-/*************************** Rutas Protegidas *********************************/
-Route::group(['middleware' => ['auth', 'bindings']], function (){
-
- 	Route::get('/home', 'HomeController@index')->name('home');
-
-	//  
-	Route::resource('padre', 'PadreController');
-
-	// 
-	Route::resource('alumno', 'AlumnoController');
-
-	// 
-	Route::resource('representante', 'RepresentanteController');
-
-
 	//Constancias
 	Route::resource('constancia', 'ConstanciaEstudioController');
 
@@ -94,6 +76,23 @@ Route::group(['middleware' => ['auth', 'bindings']], function (){
             'uses' => 'RetiroController@adminPdf'));
 
 	Route::resource('colaboracion','ColaboracionesController');
+
+});
+/**************************** Rutas Privadas **********************************/
+/*----------------------------------------------------------------------------*/
+/*************************** Rutas Protegidas *********************************/
+Route::group(['middleware' => ['auth', 'bindings']], function (){
+
+ 	Route::get('/home', 'HomeController@index')->name('home');
+
+	//  
+	Route::resource('padre', 'PadreController');
+
+	// 
+	Route::resource('alumno', 'AlumnoController');
+
+	// 
+	Route::resource('representante', 'RepresentanteController');
 
 
 	//Route::resource('inscripcion', 'InscripcionController');
