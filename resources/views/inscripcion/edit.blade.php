@@ -10,10 +10,10 @@
 @section('contenido')
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-			<h1 class="">Registrar representante</h1>
+			<h1 class="">Editar Periodo</h1>
 		</div>
 	</div>
-	@include('representante._form', ['representante' => $representante])
+    @include('periodo._form', ['periodo' => $periodo])    
 @endsection
 
 @section('js')
@@ -22,9 +22,7 @@
     <!-- DateRangerPicker -->
 	<script src="{{ asset('js/datepicker/moment.min.js') }}"></script>
 	<script src="{{ asset('js/datepicker/daterangepicker.js') }}""></script>
-	<!-- Creacion -->
-	<script src="{{ asset('js/representante/create.js') }}"></script>
+	<!-- Edicion -->
+	<script src="{{ asset('js/periodo/edit.js') }}"></script>
 @stop
-
-
 
