@@ -53,10 +53,10 @@ class CreateInscripcionesTable extends Migration
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
 
-            $table->foreign('docente_periodo_docente_id', 'fk_inscripciones_docente_periodo1_idx')
-                ->references('docente_id')->on('docente_periodo')
-                ->onDelete('restrict')
-                ->onUpdate('cascade');
+            // $table->foreign('docente_periodo_docente_id', 'fk_inscripciones_docente_periodo1_idx')
+            //     ->references('docente_id')->on('docente_periodo')
+            //     ->onDelete('restrict')
+            //     ->onUpdate('cascade');
         
             $table->timestamps();
         });
