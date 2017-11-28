@@ -10,16 +10,32 @@
 
 @endsection
 
-@section('contenido')	
+@section('contenido')
     <div class="clearfix"></div>
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12 text-center">
             <h1 class="">Listado de las Inscripciones</h1>
         </div>
     </div>
+{{-- 
 
     @include('inscripcion._modal')
     @include('inscripcion._table', ['inscripciones' => $inscripciones])
+ --}}
+
+<style type="text/css">
+	.content {
+	    width:600px;
+	    height:400px;
+	    line-height:400px;
+	    margin:0px auto;
+	    text-align:center;
+	}
+</style>
+
+<div class="content">
+ 	<img src={{ asset('images/construccion.jpg') }} style="margin: 0 auto;">
+</div>
 @endsection
 
 @section('js')
