@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Padre extends Model
 {
@@ -14,13 +15,34 @@ class Padre extends Model
 		'datos_basico_id'
 	];
 
-	/*-------------------------------Relaciones-------------------------------*/
-	public function datosBasico(){
-	    return $this->belongsTo(DatosBasico::class);
+	public static function buscar($cedula='')
+	{
+		
+	    return DatosBasico::where('cedula', $cedula)
+			->with('padre')
+			->first()
+			->padre;
+
+		/*
+		return DatosBasico::where('cedula', $cedula)
+            ->join('padre', 'padre.datos_basico_id', 'datos_basicos.id')
+            ->first();
+        */
 	}
 
+	/*-------------------------------Relaciones-------------------------------*/
+	public function datosBasico(){
+	    return $this->belongsTo(DatosBasico::class)->withDefault();
+	}
+
+	public function alumnos()
+    {
+        return $this->belongsToMany(Alumno::class, 'padres_alumnos');
+    }
+
 	/*------------------------------/Relaciones-------------------------------*/
-	
+
+	// mutadores
 	/*--------------------- Bind Datos Basicos ------------------------*/
 	public function getCedulaAttribute()
 	{

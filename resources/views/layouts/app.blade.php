@@ -90,6 +90,8 @@
                                     </a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('periodo.index') }}">Periodos Escolares</a></li>
+                                        <li><a href="{{ route('alumno.index') }}">Alumnos</a></li>
+                                        <li><a href="{{ route('representante.index') }}">Representantes</a></li>
                                         <li><a href="{{ route('padre.index') }}">Padres</a></li>
                                     </ul>
                                 </li>

@@ -24,14 +24,23 @@ Route::group(['middleware' => ['auth', 'bindings']], function (){
 	//  
 	Route::resource('padre', 'PadreController');
 
+	// buscar padre por numero de cedula
+	Route::name('padre.buscar')->get('padre/{cedula}/buscar_padre', 'PadreController@buscar_padre');
+	
 	// 
 	Route::resource('alumno', 'AlumnoController');
 
 	// 
 	Route::resource('representante', 'RepresentanteController');
 
+	// buscar representante por numero de cedula
+	Route::name('representante.buscar')->get('representante/{cedula}/buscar_representante', 'RepresentanteController@buscar_representante');
 
+	//
 	Route::resource('inscripcion', 'InscripcionController');
+
+	Route::name('datos_basico.buscar')->get('datos_basico/{cedula}/buscar_datos_basicos', 'DatosBasicoController@buscar');
+
 
 
 });
