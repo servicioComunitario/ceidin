@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Representante extends Model
 {
@@ -12,9 +13,27 @@ class Representante extends Model
 		'parentesco'
 	];
 
+
+	public static function buscar($cedula='')
+	{
+		
+	    return DatosBasico::where('cedula', $cedula)
+			->with('representante')
+			->first()
+			->representante;
+		
+		/*
+		return DatosBasico::where('cedula', $cedula)
+            ->join('representantes', 'representantes.datos_basico_id', 'datos_basicos.id')
+            ->first();
+        */
+	}
+
+
+
 	/*-------------------------------Relaciones-------------------------------*/
 	public function datosBasico(){
-	    return $this->belongsTo(DatosBasico::class);
+	    return $this->belongsTo(DatosBasico::class)->withDefault();
 	}
 
 	/*------------------------------/Relaciones-------------------------------*/

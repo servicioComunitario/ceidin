@@ -40,6 +40,5 @@
 
 	<!-- Creacion -->
 	<script src="{{ asset('js/padre/index.js') }}"></script>
-
 @endsection
 

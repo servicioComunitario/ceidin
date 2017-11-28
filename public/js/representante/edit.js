@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	$('#fecha_nacimiento').daterangepicker({
+	$('#representante_fecha_nacimiento').daterangepicker({
 		locale: {
 	        format: "DD-MM-YYYY",
 	        separator: " - ",

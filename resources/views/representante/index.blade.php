@@ -39,7 +39,7 @@
 	<script src={{ asset('datatable/jszip/dist/jszip.min.js') }}></script>
 
 	<!-- Creacion -->
-	<script src="{{ asset('js/representante/index.js') }}"></script>
+	<script src={{ asset('js/representante/index.js') }}></script>
 
 @endsection
 

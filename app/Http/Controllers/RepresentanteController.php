@@ -42,6 +42,19 @@ class RepresentanteController extends Controller
     {
         try{
             DB::beginTransaction();
+                $datos_basico = DatosBasico::where('cedula', $request->representante['datos_basico']['cedula'])->first();
+
+                if (!$datos_basico) {
+                    session()->flash('msg_danger', "Error. No se encuentra registrado el usuario.");
+                    return $this->create();
+                }
+                
+                $representante = new Representante();
+                $representante->datos_basico_id = $datos_basico->id;
+                $representante->parentesco = $request->representante['parentesco'];
+                $representante->save();
+
+/*
                 // guardando los datos basicos
                 $datos_basico = DatosBasico::create(
                     $request->datos_basico
@@ -52,7 +65,8 @@ class RepresentanteController extends Controller
 
                 // relacionando los modelos
                 $representante->datos_basico_id = $datos_basico->id;
-                $representante->save();            
+                $representante->save();
+*/
             DB::commit();
             session()->flash('msg_success', "El representante '$representante->nombre' '$representante->apellido' ha sido creado.");
         } catch (Exception $e) {
@@ -94,11 +108,15 @@ class RepresentanteController extends Controller
      * @return \Illuminate\Http\Response
      */
     // public function update(Request $request, Representante $representante)
-    public function update(Request $request, $representante)
+    public function update(Request $request, Representante $representante)
     {
         try{
             DB::beginTransaction();
+                $representante->update(
+                    $request->only('representante')['representante']
+                );
 
+/*
                 $representante = Representante::find($representante);
                 $datos_basico = $representante->datosBasico;
 
@@ -109,7 +127,7 @@ class RepresentanteController extends Controller
                 $representante->update(
                     $request->only('representante')['representante']
                 );
-
+*/
             DB::commit();
 
             session()->flash('msg_info', "El representante '$representante->nombre' '$representante->apellido' ha sido actualizado.");
@@ -133,7 +151,6 @@ class RepresentanteController extends Controller
     {
         try {
             $representante = Representante::find($request->id);
-
             $representante->delete();
 
             session()->flash('msg_danger', "El representante '$representante->nombre' '$representante->apellido' ha sido eliminado.");
@@ -143,4 +160,20 @@ class RepresentanteController extends Controller
 
         return redirect()->route('representante.index');
     }
+
+    public function buscar_representante($cedula)
+    {
+        // DatosBasico::where('cedula', '654987')->with('representante')->first();
+
+        $representante = DatosBasico::where('cedula', $cedula)
+                        ->join('representantes', 'representantes.datos_basico_id', 'datos_basicos.id')
+                        ->first();
+
+        if (sizeof($representante)) {
+            return response()->json(['representante' => $representante, 'code' => 1]);
+        }else{
+            return response()->json(['representante' => null, 'code' => 0]);
+        }
+    }
+
 }

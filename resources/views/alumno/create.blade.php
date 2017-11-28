@@ -10,10 +10,10 @@
 @section('contenido')
 	<div class="row">
 		<div class="col-md-12 col-sm-12 col-xs-12 text-center">
-			<h1 class="">Registrar padre</h1>
+			<h1 class="">Registrar alumno</h1>
 		</div>
 	</div>
-	@include('padre._form', ['padre' => $padre])
+	@include('alumno._form', ['alumno' => $alumno])
 @endsection
 
 @section('js')
@@ -23,7 +23,7 @@
 	<script src="{{ asset('js/datepicker/moment.min.js') }}"></script>
 	<script src="{{ asset('js/datepicker/daterangepicker.js') }}""></script>
 	<!-- Creacion -->
-	<script src="{{ asset('js/padre/create.js') }}"></script>
+	<script src="{{ asset('js/alumno/create.js') }}"></script>
 
 @stop
 

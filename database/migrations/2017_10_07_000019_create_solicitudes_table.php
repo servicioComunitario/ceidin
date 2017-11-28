@@ -30,12 +30,24 @@ class CreateSolicitudesTable extends Migration
             $table->dateTime('fecha_atendida')->nullable();
             $table->text('cedula_solicitante');
             $table->integer('usuario_id')->unsigned();
+            $table->integer('alumno_id')->unsigned();
+            $table->integer('inscripcion_id')->unsigned();
 
             $table->foreign('usuario_id', 'fk_solicitudes_usuarios1_idx')
                 ->references('id')->on('usuarios')
                 ->onDelete('restrict')
                 ->onUpdate('cascade');
-        
+
+            $table->foreign('alumno_id', 'fk_solicitudes_alumnos1_idx')
+                ->references('id')->on('alumnos')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+
+            $table->foreign('inscripcion_id', 'fk_solicitudes_inscripciones1_idx')
+                ->references('id')->on('inscripciones')
+                ->onDelete('restrict')
+                ->onUpdate('cascade');
+    
             $table->timestamps();
         });
     }

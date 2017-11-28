@@ -24,7 +24,6 @@
 	<script src="{{ asset('js/datepicker/daterangepicker.js') }}""></script>
 	<!-- Creacion -->
 	<script src="{{ asset('js/representante/create.js') }}"></script>
-
 @stop
 
 
