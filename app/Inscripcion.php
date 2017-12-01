@@ -39,6 +39,15 @@ class Inscripcion extends Model
         return $this->belongsTo(Alumno::class);
     }
 
+    public function periodo() {
+        return $this->belongsTo(Periodo::class, 'docente_periodo_periodo_id', 'id');
+    }
+
+    public function docentePeriodo() {
+        return $this->belongsTo(DocentePeriodo::class, 'docente_periodo_periodo_id', 'periodo_id');
+    }
+
+
     //public function (){
     //    return $this->belongsTo(DocentePeriodo::class, (uno, la_otra));
     //}

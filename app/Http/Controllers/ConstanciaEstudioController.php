@@ -10,6 +10,7 @@ use App\Usuario;
 use App\Solicitud;
 use App\Inscripcion;
 use App\Retiro;
+use App\Periodo;
 use PDF;
 use View;
 use Storage;
@@ -136,7 +137,9 @@ class ConstanciaEstudioController extends Controller
         $meses= ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
         $fecha = date('Y-m-d',strtotime($alumno->datosBasico->fecha_nacimiento));
         $edad=Alumno::edadAlumno($fecha);
-        $pdf = PDF::loadView('pdf.constancia',['alumno' => $alumno,'inscripcion' => $inscripcion, 'edad' => $edad, 'dia' => date("d"), 'mes' => $meses[date("m")], 'ano' => date("Y")]);
+        $director=Usuario::where('rol_id','=',1)->first();
+        $inscripcion=Inscripcion::where('alumno_id','=',$alumno->id)->get()->last();
+        $pdf = PDF::loadView('pdf.constancia',['alumno' => $alumno,'inscripcion' => $inscripcion, 'edad' => $edad, 'dia' => date("d"), 'mes' => $meses[date("m")-1], 'ano' => date("Y"), 'director' => $director,'inscripcion' => $inscripcion]);
         $pdf->getDomPDF()->set_option('enable_html5_parser', true);
         return $pdf;
     }

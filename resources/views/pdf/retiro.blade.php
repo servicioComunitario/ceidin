@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<title>Constancia de retiro</title>
+	<title>Constancia de estudio</title>
 	<style type="text/css">
 		body{
 			padding: 1cm 1cm 0cm 2cm;
@@ -30,6 +30,9 @@
 			left: 10%;
 			width: 100px;	
 		}
+		.mayuscula{
+			text-transform: uppercase;
+		}
 	</style>
 </head>
 <body>
@@ -50,7 +53,7 @@
 	<br>
 	<br>
 	<p>
-			  La suscrita Directora del centro de Educacion Inicial "Desarrollo Integral del Niño", que funciona en Puerto Ordaz, Estado Bolivar, por medio de la presente, hace constar que el alumno(a):{{$alumno->datosBasico->nombre}} {{$alumno->datosBasico->apellido}} Sexo {{$alumno->datosBasico->sexo}}, de {{$edad}} años, fue retirado del Grupo de Educacion Inicial en la Seccion xyz en esta Institucion, correspondiente al Año Escolar bla bla bla
+			  El suscrito Director(a) {{$director->datosBasico->nombre}}  {{$director->datosBasico->apellido}} con dedula n° {{$director->datosBasico->cedula}} del centro de Educacion Inicial "Desarrollo Integral del Niño", que funciona en Puerto Ordaz, Estado Bolivar, por medio de la presente, hace constar que el alumno(a):{{$alumno->datosBasico->nombre}} {{$alumno->datosBasico->apellido}} Sexo {{$alumno->datosBasico->sexo}}, de {{$edad}} años con cedula escolar n° {{$alumno->datosBasico->cedula}}, inscrito para cursar el periodo {{$inscripcion->docentePeriodo->seccion}} correspondiente al Año Escolar {{$inscripcion->periodo->fecha_inicio}} ha sido retirado por su Representante, por motivo: Viaje.
 	</p>
 
 	Constancia que se expide a peticion de la parte interesada a los {{$dia}} Días del mes de {{$mes}} del año {{$ano}}
@@ -65,8 +68,8 @@
 	<br>
 
 	<div>
-		<h4 class="linea">LICENCIADA MARIA EMILIA FARIÑAS</h4>
-		<h4>DIRECTORA DEL PLANTEL</h4>
+		<h4 class="linea mayuscula">LICENCIADO(A) {{$director->datosBasico->nombre}}  {{$director->datosBasico->apellido}}</h4>
+		<h4>DIRECTOR(A) DEL PLANTEL</h4>
 	</div>
 	
 	<br>

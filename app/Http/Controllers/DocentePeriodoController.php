@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Docente;
 use App\Periodo;
-use App\DocentePediodo;
+use App\DocentePeriodo;
 
 class DocentePeriodoController extends Controller
 {
@@ -41,7 +41,7 @@ class DocentePeriodoController extends Controller
     {
         try{
 
-            $docente_periodo=DocentePediodo::create($request->all());
+            $docente_periodo=DocentePeriodo::create($request->all());
             
             session()->flash('msg_success', "El Doncente ha sido asignadio.");
         } catch (Exception $e) {
@@ -59,7 +59,7 @@ class DocentePeriodoController extends Controller
      */
     public function show($id)
     {
-        $docente_periodo=DocentePediodo::where('periodo_id','=',$id)->get();
+        $docente_periodo=DocentePeriodo::where('periodo_id','=',$id)->get();
         $periodo=Periodo::findOrFail($id);
         $arreglo_doncentes=array();
         if (count($docente_periodo)>0) {
@@ -108,7 +108,7 @@ class DocentePeriodoController extends Controller
         try {
             $input=json_decode($request->id,true);
 
-            $docente_periodo=DocentePediodo::where('periodo_id','=',$input['periodo_id'])->where('docente_id','=',$input['docente_id'])->delete();
+            $docente_periodo=DocentePeriodo::where('periodo_id','=',$input['periodo_id'])->where('docente_id','=',$input['docente_id'])->delete();
 
             session()->flash('msg_danger', "El docente ha sido eliminado del periodo");
         } catch (Exception $e) {

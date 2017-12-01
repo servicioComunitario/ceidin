@@ -8,7 +8,9 @@ use App\DatosBasico;
 use App\AntecedenteMedico;
 use App\AntecedenteFamiliar;
 use App\OtrosDato;
+use App\Usuario;
 use Illuminate\Http\Request;
+use PDF;
 use DB;
 
 // OJOOOOOO
@@ -187,5 +189,20 @@ class AlumnoController extends Controller
     public function destroy(Alumno $alumno)
     {
         //
+    }
+
+    public function mostrarTodo()
+    {
+        $alumnos=Alumno::all();
+        return view('layouts.alumno.admin')->with(['alumnos' => $alumnos, 'tipo' => 'cedula']);
+    }
+
+    public function cedulaPdf($id)
+    {
+        $alumno=Alumno::findOrFail($id);
+        $director=Usuario::where('rol_id','=',1)->first();
+        $pdf = PDF::loadView('pdf.cedula',['alumno' => $alumno,'director' => $director]);
+        $pdf->getDomPDF()->set_option('enable_html5_parser', true);
+        return $pdf->stream('cedula.pdf');
     }
 }

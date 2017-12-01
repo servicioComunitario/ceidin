@@ -15,6 +15,41 @@ Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
  	Route::resource('acceso', 'AccesoController');
 	Route::resource('rol', 'RolController');
 
+	
+
+});
+/**************************** Rutas Privadas **********************************/
+/*----------------------------------------------------------------------------*/
+/*************************** Rutas Protegidas *********************************/
+Route::group(['middleware' => ['auth', 'bindings']], function (){
+
+ 	Route::get('/home', 'HomeController@index')->name('home');
+
+	//  
+	Route::resource('padre', 'PadreController');
+
+	// buscar padre por numero de cedula
+	Route::name('padre.buscar')->get('padre/{cedula}/buscar_padre', 'PadreController@buscar_padre');
+	
+	// 
+	Route::resource('alumno', 'AlumnoController');
+
+	// 
+	Route::resource('representante', 'RepresentanteController');
+
+	// buscar representante por numero de cedula
+	Route::name('representante.buscar')->get('representante/{cedula}/buscar_representante', 'RepresentanteController@buscar_representante');
+
+	Route::resource('usuario', 'UsuarioController', ['only' => [
+	    'edit', 'update'
+	]]);
+
+	//
+	Route::resource('inscripcion', 'InscripcionController');
+
+
+	Route::name('datos_basico.buscar')->get('datos_basico/{cedula}/buscar_datos_basicos', 'DatosBasicoController@buscar');
+
 	//DOCENTE
 	Route::resource('docente', 'DocenteController');
 	Route::resource('docente_periodo', 'DocentePeriodoController');
@@ -79,40 +114,21 @@ Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
 
 	Route::resource('colaboracion','ColaboracionesController');
 
-});
-/**************************** Rutas Privadas **********************************/
-/*----------------------------------------------------------------------------*/
-/*************************** Rutas Protegidas *********************************/
-Route::group(['middleware' => ['auth', 'bindings']], function (){
+	Route::get('admin/alumno', array(
+            'as' => 'admin.alumno.all',
+            'uses' => 'AlumnoController@mostrarTodo'));
 
- 	Route::get('/home', 'HomeController@index')->name('home');
+	Route::get('admin/alumno/cedula/{id?}', array(
+            'as' => 'admin.alumno.cedula',
+            'uses' => 'AlumnoController@cedulaPdf'));
 
-	//  
-	Route::resource('padre', 'PadreController');
+	Route::get('admin/inscripcion_inicial', array(
+            'as' => 'inscripcion.inicial',
+            'uses' => 'InscripcionController@inscripcionInicial'));
 
-	// buscar padre por numero de cedula
-	Route::name('padre.buscar')->get('padre/{cedula}/buscar_padre', 'PadreController@buscar_padre');
-	
-	// 
-	Route::resource('alumno', 'AlumnoController');
-
-	// 
-	Route::resource('representante', 'RepresentanteController');
-
-	// buscar representante por numero de cedula
-	Route::name('representante.buscar')->get('representante/{cedula}/buscar_representante', 'RepresentanteController@buscar_representante');
-
-	Route::resource('usuario', 'UsuarioController', ['only' => [
-	    'edit', 'update'
-	]]);
-
-	//
-	Route::resource('inscripcion', 'InscripcionController');
-
-
-	Route::name('datos_basico.buscar')->get('datos_basico/{cedula}/buscar_datos_basicos', 'DatosBasicoController@buscar');
-
-
+	Route::get('admin/inscripcion_pdf/{docente_id?}/{periodo_id?}', array(
+            'as' => 'admin.inscripcion.pdf',
+            'uses' => 'InscripcionController@inscripcionPdf'));
 
 });
 /*************************** Rutas Protegidas *********************************/

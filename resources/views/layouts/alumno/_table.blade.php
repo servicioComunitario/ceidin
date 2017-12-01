@@ -33,9 +33,11 @@
                             <td>{{ $alumno->telefono_celular }}</td>
                             <td class="text-center">
                                 @if($tipo=='constancia')
-                                    <a href={{ route('admin.constancia.pdf', $alumno->id) }} class="btn btn-danger btn-xs" title="PDF"><i class="fa fa-file-pdf-o"></i></a>
+                                    <a href={{ route('admin.constancia.pdf', $alumno->id) }} class="btn btn-danger btn-xs" title="PDF" target="_blank"><i class="fa fa-file-pdf-o"></i></a>
+                                @elseif($tipo=='retiro')
+                                    <a href={{ route('admin.retiro.pdf', $alumno->id) }} class="btn btn-danger btn-xs" title="PDF" target="_blank"><i class="fa fa-file-pdf-o"></i></a>
                                 @else
-                                    <a href={{ route('admin.retiro.pdf', $alumno->id) }} class="btn btn-danger btn-xs" title="PDF"><i class="fa fa-file-pdf-o"></i></a>
+                                    <a href={{ route('admin.alumno.cedula', $alumno->id) }} class="btn btn-danger btn-xs" title="PDF" target="_blank"><i class="fa fa-file-pdf-o"></i></a>
                                 @endif
                             </td>
                         </tr>

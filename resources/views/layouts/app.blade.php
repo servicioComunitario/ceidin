@@ -123,12 +123,14 @@
                                 <li>
                                     <a>
                                         <i class="fa fa-file-text-o fa-fw"></i> 
-                                        Solicitudes 
+                                        Reportes 
                                         <span class="fa fa-chevron-down"></span>
                                     </a>
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('constancia.solicitudes') }}">Constancias</a></li>
                                         <li><a href="{{ route('retiro.solicitudes') }}">Retiros</a></li>
+                                        <li><a href="{{ route('admin.alumno.all') }}">Cedula Estudiantil</a></li>
+                                        <li><a href="{{ route('inscripcion.inicial') }}">Inscripciones</a></li>
                                     </ul>
                                 </li>
                                 {{-- /.Solicitudes --}}

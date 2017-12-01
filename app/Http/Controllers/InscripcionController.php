@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Inscripcion;
 use Illuminate\Http\Request;
+use App\DocentePeriodo;
+use PDF;
 
 class InscripcionController extends Controller
 {
@@ -91,5 +93,32 @@ class InscripcionController extends Controller
         }
 
         return redirect()->route('inscripcion.index');
+    }
+
+
+    public function inscripcionInicial()
+    {
+        $docentes_periodo=DocentePeriodo::all();
+        return view('docente_periodo.secciones')->with('docentes_periodo',$docentes_periodo);
+    }
+
+    public function inscripcionPdf($docente_id,$periodo_id)
+    {
+        $inscripciones=Inscripcion::where('docente_periodo_docente_id','=',$docente_id)->where('docente_periodo_periodo_id','=',$periodo_id)->get();
+        $docente_periodo=DocentePeriodo::where('docente_id','=',$docente_id)->where('periodo_id','=',$periodo_id)->first();
+        $varones=0;
+        $hembras=0;
+        $total=count($inscripciones);
+        foreach ($inscripciones as $inscripcion) {
+            if($inscripcion->alumno->datosBasico->sexo=='M'){
+                $varones++;
+            }else{
+                $hembras++;
+            }
+        }
+        $pdf = PDF::loadView('pdf.inscripcion_inicial',['inscripciones' => $inscripciones,'docente_periodo' => $docente_periodo, 'varones' => $varones , 'hembras' => $hembras, 'total' => $total]);
+        $pdf->setPaper('a4', 'landscape');
+        $pdf->getDomPDF()->set_option('enable_html5_parser', true);
+        return $pdf->stream('inscripcion_inicial.pdf');
     }
 }
