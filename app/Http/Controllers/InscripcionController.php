@@ -7,7 +7,7 @@ use App\DatosBasico;
 use App\Inscripcion;
 use App\Representante;
 use App\Usuario;
-use App\DocentePediodo;
+use App\DocentePeriodo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\DocentePeriodo;
@@ -35,7 +35,7 @@ class InscripcionController extends Controller
     public function create()
     {        
         $inscripcion = new Inscripcion();
-        $docentes_periodo = DocentePediodo::all();
+        $docentes_periodo = DocentePeriodo::all();
         return view('inscripcion.create')->with(['inscripcion' => $inscripcion, 'docentes_periodo' => $docentes_periodo]);
     }
 

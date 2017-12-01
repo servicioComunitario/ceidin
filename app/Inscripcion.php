@@ -39,7 +39,7 @@ class Inscripcion extends Model
     }
 
     public function docentePeriodo(){
-        return $this->belongsTo(DocentePediodo::class)->withDefault();
+        return $this->belongsTo(DocentePeriodo::class)->withDefault();
     }
 
     public function periodo() {
