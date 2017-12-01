@@ -19,6 +19,27 @@
                         </div>
                         <div class="x_content">
                             <br />
+
+                            <div class="form-group">
+                                <label class="control-label col-md-5 col-sm-5 col-xs-12" for="inscripcion[docente_periodo_id]"><span class="required">*</span> Docente - nivel - sección:</label>
+                                <div class="col-md-6 col-sm-6 col-xs-12">
+                                    <select class="form-control" style="font-family: 'FontAwesome', Helvetica;" name="inscripcion[docente_periodo_id]">
+                                        @foreach($docentes_periodo as $docente_periodo)
+                                            <option value={{$docente_periodo->id}}> 
+                                                {{ $docente_periodo->docente->datosBasico->nombre.' '.$docente_periodo->docente->datosBasico->apellido }} 
+                                                 - 
+                                                {{
+                                                    $docente_periodo->nivel
+                                                }}
+                                                 - 
+                                                {{
+                                                    $docente_periodo->seccion
+                                                }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-md-5 col-sm-5 col-xs-12" for="inscripcion[fotos]"><span class="required">*</span> Fotos:</label>
@@ -162,7 +183,7 @@
                                         Cedula representante:
                                     </label>
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        <input type="text" name="inscripcion[cedula_representante]" class="form-control " id="cedula_representante" placeholder="" aria-describedby="inputSuccess2Status"  value="{{ old('inscripcioncedula_representante[]') }}">
+                                        <input type="text" readonly="true" name="inscripcion[cedula_representante]" class="form-control " id="cedula_representante" placeholder="" aria-describedby="inputSuccess2Status"  value="{{ old('inscripcioncedula_representante[]') }}">
 
                                         @if ($errors->has('inscripcion[cedula_representante]'))
                                             <span class="text-danger">{{ $errors->first('inscripcion[cedula_representante]') }}</span>

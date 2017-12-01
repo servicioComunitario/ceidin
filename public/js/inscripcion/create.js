@@ -37,7 +37,7 @@ $(document).ready(function() {
 		        }
 		    });
 
-		    $('#cedula_representante').val(alumno.representante.datos_basico.cedula).attr('disabled', 'true');
+		    $('#cedula_representante').val(alumno.representante.datos_basico.cedula).attr('readonly', 'true');
       	});
     });
 });

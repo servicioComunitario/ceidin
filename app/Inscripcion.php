@@ -23,11 +23,10 @@ class Inscripcion extends Model
         'talla_salida',
         'peso_salida',
         'cedula_representante',
-        'fecha_nacimiento',
+        'fecha_validacion',
         'alumno_id',
         'usuario_id',
-        'docente_periodo_docente_id',
-        'docente_periodo_periodo_id'
+        'docente_periodo_id'
     ];
 
     /************************** Relaciones ****************************/
@@ -37,6 +36,10 @@ class Inscripcion extends Model
 
     public function alumno(){
         return $this->belongsTo(Alumno::class)->withDefault();
+    }
+
+    public function docentePeriodo(){
+        return $this->belongsTo(DocentePediodo::class)->withDefault();
     }
 
     //public function (){

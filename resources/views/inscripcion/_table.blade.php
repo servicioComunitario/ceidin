@@ -34,7 +34,12 @@
 			                <td>{{ $inscripcion->alumno->nombre .' '. $inscripcion->alumno->nombre }}</td>
 			                <td>{{ $inscripcion->estatus }}</td>
 			                <td>{{ $inscripcion->fecha }}</td>
-                            <td></td>
+                            <td class="text-center">
+                                <button type="button" class="btn btn-danger btn-xs" title="Eliminar" data-toggle="modal" data-target="#modal_eliminacion" onclick="$('#id_eliminar').val('{{ $inscripcion->id }}')">
+                                    <i class="fa fa-trash-o"></i>
+                                </button>
+                                <a href={{ route('inscripcion.edit', $inscripcion->id) }} class="btn btn-primary btn-xs" title="Editar"><i class="fa fa-pencil"></i></a>
+                            </td>
                         </tr>
                         @endforeach                        
                     </tbody>

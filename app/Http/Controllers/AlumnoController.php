@@ -95,7 +95,7 @@ class AlumnoController extends Controller
                     $datos_alumno 
                 );
 
-                $alumno->save();
+                // $alumno->save();
                 
             // $alumno->padres()->attach( $padre->id );
             // $alumno->padres()->attach( $madre->id );
