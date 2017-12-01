@@ -184,7 +184,7 @@ class AlumnoController extends Controller
         return redirect()->route('alumno.index');
     }
 
-<<<<<<< HEAD
+
     public function mostrarTodo()
     {
         $alumnos=Alumno::all();
@@ -199,7 +199,7 @@ class AlumnoController extends Controller
         $pdf->getDomPDF()->set_option('enable_html5_parser', true);
         return $pdf->stream('cedula.pdf');
     }
-=======
+
     public function buscar($cedula)
     {
 
@@ -222,5 +222,4 @@ class AlumnoController extends Controller
         }
     }
 
->>>>>>> origin/master
 }
