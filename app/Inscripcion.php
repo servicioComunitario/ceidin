@@ -32,11 +32,11 @@ class Inscripcion extends Model
 
     /************************** Relaciones ****************************/
     public function usuario(){
-        return $this->belongsTo(Usuario::class);
+        return $this->belongsTo(Usuario::class)->withDefault();
     }
 
     public function alumno(){
-        return $this->belongsTo(Alumno::class);
+        return $this->belongsTo(Alumno::class)->withDefault();
     }
 
     //public function (){
