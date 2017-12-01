@@ -31,4 +31,9 @@ class DatosBasico extends Model
     {
         return $this->hasOne(Representante::class);
     }
+
+    public function alumno()
+    {
+        return $this->hasOne(Alumno::class);
+    }
 }

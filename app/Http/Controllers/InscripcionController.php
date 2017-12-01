@@ -2,10 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Alumno;
+use App\DatosBasico;
 use App\Inscripcion;
+use App\Representante;
+use App\Usuario;
+use App\DocentePediodo;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\DocentePeriodo;
 use PDF;
+use DB;
 
 class InscripcionController extends Controller
 {
@@ -28,7 +35,8 @@ class InscripcionController extends Controller
     public function create()
     {        
         $inscripcion = new Inscripcion();
-        return view('inscripcion.create')->with('inscripcion', $inscripcion);
+        $docentes_periodo = DocentePediodo::all();
+        return view('inscripcion.create')->with(['inscripcion' => $inscripcion, 'docentes_periodo' => $docentes_periodo]);
     }
 
     /**
@@ -39,7 +47,36 @@ class InscripcionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            DB::beginTransaction();
+
+                // dd($request);
+
+                $alumno = Alumno::buscar($request->datos_basico['cedula']);
+                if ($alumno === null )
+                    return redirect()->route('inscripcion.index');
+
+                $datos_inscripcion = array_merge(
+                    ['fecha' => getdate()['year'].'-'.getdate()['mon'].'-'.getdate()['mday'] ],
+                    ['otros' => 'aqui van otros...'],
+                    ['fecha_validacion' => getdate()['year'].'-'.getdate()['mon'].'-'.getdate()['mday'] ],
+                    $request->inscripcion, 
+                    ['alumno_id' => $alumno->id ],
+                    ['usuario_id' => Auth::user()->id]
+                );
+
+                $inscripcion = Inscripcion::create( 
+                    $datos_inscripcion 
+                );
+
+            DB::commit();            
+        } catch (Exception $e) {
+            DB::rollback();
+            session()->flash('msg_danger', $e->getMessage());
+        }
+
+        return redirect()->route('inscripcion.index');
+
     }
 
     /**
@@ -73,7 +110,7 @@ class InscripcionController extends Controller
      */
     public function update(Request $request, Inscripcion $inscripcion)
     {
-        //
+        return redirect()->route('alumno.index');
     }
 
     /**

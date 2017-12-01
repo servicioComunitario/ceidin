@@ -100,8 +100,11 @@
                                     <ul class="nav child_menu">
                                         <li><a href="{{ route('periodo.index') }}">Periodos Escolares</a></li>
                                         <li><a href="{{ route('alumno.index') }}">Alumnos</a></li>
-                                        <li><a href="{{ route('representante.index') }}">Representantes</a></li>
+                                        <li><a href="{{ route('docente.index') }}">Docentes</a></li>
+                                        <li><a href="{{ route('docente_periodo.index') }}">Docente-Periodo</a></li>
+                                        <li><a href="{{ route('inscripcion.index') }}">Inscripciones</a></li>
                                         <li><a href="{{ route('padre.index') }}">Padres</a></li>
+                                        <li><a href="{{ route('representante.index') }}">Representantes</a></li>
                                         <li><a href="{{ route('usuario.index') }}">Usuarios</a></li>
                                         <li><a href="{{ route('admin.constancia.representante') }}">Constancias</a></li>
                                         <li><a href="{{ route('admin.retiro.representante') }}">Retiros</a></li>

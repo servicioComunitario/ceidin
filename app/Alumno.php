@@ -20,6 +20,36 @@ class Alumno extends Model
 		'datos_basico_id'
 	];
 
+
+	public static function buscar($cedula='')
+	{
+	    $alumno = DatosBasico::where('cedula', $cedula)
+			->with('alumno')
+			->first();
+
+		if ($alumno) {
+			return $alumno->alumno;
+		} else{
+			return null;
+		}
+
+	}
+
+	public function generarCedula()
+	{
+		$num_hijo = 1;
+		$anio_nacimiento = Carbon::parse($this->fecha_nacimiento)->format("y");
+		$cedula_madre = $this->madre()->cedula;
+		$cedula_alumno = $num_hijo . $anio_nacimiento . $cedula_madre;
+
+		while ( DatosBasico::where('cedula', $cedula_alumno)->first() ) {
+			$num_hijo++;
+			$cedula_alumno = $num_hijo . $anio_nacimiento . $cedula_madre;
+		}
+
+		return $cedula_alumno;
+	}
+
 	/*-------------------------------Relaciones-------------------------------*/
 	public function datosBasico(){
 	    return $this->belongsTo(DatosBasico::class)->withDefault();
@@ -48,11 +78,12 @@ class Alumno extends Model
 
 	public function padre()
 	{
-		// return $this->padres->where('sexo','M')->first();
-
+/*
 		$this->padres->reject(function ($item) {
 			return $item->sexo == 'F';
 		});
+*/
+		return $this->padres->where('sexo','M')->first();
 	}
 
 	public function madre()

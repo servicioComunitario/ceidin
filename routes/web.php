@@ -121,6 +121,32 @@ Route::group(['middleware' => ['auth', 'bindings']], function (){
 	Route::get('admin/alumno/cedula/{id?}', array(
             'as' => 'admin.alumno.cedula',
             'uses' => 'AlumnoController@cedulaPdf'));
+	//  
+	Route::resource('padre', 'PadreController');
+
+	// buscar padre por numero de cedula
+	Route::name('padre.buscar')->get('padre/{cedula}/buscar_padre', 'PadreController@buscar_padre');
+	
+	// 
+	Route::resource('alumno', 'AlumnoController');
+	Route::name('alumno.buscar')->get('alumno/{cedula}/buscar', 'AlumnoController@buscar');
+
+
+	// 
+	Route::resource('representante', 'RepresentanteController');
+
+	// buscar representante por numero de cedula
+	Route::name('representante.buscar')->get('representante/{cedula}/buscar_representante', 'RepresentanteController@buscar_representante');
+
+	Route::resource('usuario', 'UsuarioController', ['only' => [
+	    'edit', 'update'
+	]]);
+
+	//
+	Route::resource('inscripcion', 'InscripcionController');
+
+
+	Route::name('datos_basico.buscar')->get('datos_basico/{cedula}/buscar_datos_basicos', 'DatosBasicoController@buscar');
 
 	Route::get('admin/inscripcion_inicial', array(
             'as' => 'inscripcion.inicial',

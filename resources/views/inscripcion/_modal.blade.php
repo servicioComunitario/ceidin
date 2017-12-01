@@ -10,7 +10,7 @@
             </div>
             <div class="modal-footer">
                 <div class="text-center">
-                    <form action={{ route('periodo.destroy', '-1') }} method="POST">
+                    <form action={{ route('inscripcion.destroy', '-1') }} method="POST">
                         {{ csrf_field() }}
                         {{ method_field('DELETE') }}
                         <input type="hidden" id="id_eliminar" name="id">
