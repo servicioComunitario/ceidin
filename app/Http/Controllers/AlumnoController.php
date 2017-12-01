@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Alumno;
 use App\Representante;
+use App\Padre;
 use App\DatosBasico;
 use App\AntecedenteMedico;
 use App\AntecedenteFamiliar;
@@ -15,6 +16,10 @@ use DB;
 // cambiar el attr embrazo_unico que esta en la migracion de antecedentes medicos
 class AlumnoController extends Controller
 {
+
+    private $cedula = '';
+
+
     /**
      * Display a listing of the resource.
      *
@@ -48,28 +53,6 @@ class AlumnoController extends Controller
     {
         try{
             DB::beginTransaction();
-
-                print_r($request->otros_datos);
-                echo "<br/><br/>";
-
-                print_r($request->antecedente_medico);
-                echo "<br/><br/>";
-
-                print_r($request->antecedente_familiar);
-                echo "<br/><br/>";
-
-                echo $request->representante['datos_basico']['cedula'];
-                echo "<br/><br/>";
-
-                print_r( Representante::buscar( $request->representante['datos_basico']['cedula'] ) );
-                echo "<br/><br/>";
-
-                echo $request->padre['datos_basico']['cedula'];
-                echo "<br/><br/>";
-
-                echo $request->madre['datos_basico']['cedula'];
-                echo "<br/><br/>";
-
                 // guardando los datos basicos
                 $datos_basico = DatosBasico::create(
                     $request->datos_basico
@@ -92,10 +75,10 @@ class AlumnoController extends Controller
 
 		        $representante = Representante::buscar( $request->representante['datos_basico']['cedula'] );
 
-                $padre = Representante::buscar( $request->padre['datos_basico']['cedula'] );
+                $padre = Padre::buscar( $request->padre['datos_basico']['cedula'] );
 
 
-                $madre = Representante::buscar( $request->madre['datos_basico']['cedula'] );
+                $madre = Padre::buscar( $request->madre['datos_basico']['cedula'] );
 
 
                 $datos_alumno = array_merge(
@@ -112,24 +95,12 @@ class AlumnoController extends Controller
                     $datos_alumno 
                 );
 
-
-                echo $request->madre['datos_basico']['cedula'];
-                echo $request->madre['datos_basico']['cedula'];
-                echo $request->madre['datos_basico']['cedula'];
-                echo $request->madre['datos_basico']['cedula'];
-                echo "<br/><br/>";
-
-                // dd($alumno);
-                
                 $alumno->save();
                 
-
-
-                // dd($request);
-            DB::commit();
-
             // $alumno->padres()->attach( $padre->id );
             // $alumno->padres()->attach( $madre->id );
+            DB::commit();
+
 
             session()->flash('msg_success', "El alumno '$alumno->nombre' '$alumno->apellido' ha sido creado.");
         } catch (Exception $e) {
@@ -175,7 +146,21 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, Alumno $alumno)
     {
-        //
+        try{
+            DB::beginTransaction();
+                $alumno->update(
+                    $request->only('alumno')['alumno']
+                );
+            DB::commit();
+
+            session()->flash('msg_info', "El alumno '$alumno->nombre' '$alumno->apellido' ha sido actualizado.");
+        } catch (Exception $e) {
+            DB::rollback();
+
+            session()->flash('msg_danger', $e->getMessage());
+        }
+
+        return redirect()->route('alumno.index');
     }
 
     /**
@@ -186,6 +171,37 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
-        //
+        try {
+            $alumno->delete();
+
+            session()->flash('msg_danger', "El alumno '$alumno->nombre' '$alumno->apellido' ha sido eliminado.");
+        } catch (Exception $e) {
+            session()->flash('msg_danger', $e->getMessage());
+        }
+
+        return redirect()->route('alumno.index');
     }
+
+    public function buscar($cedula)
+    {
+
+        $this->cedula = $cedula;
+
+        $alumno = Alumno::with([
+                        'representante' => function($query){ 
+                            $query->with('datosBasico'); 
+                    }])
+                    ->with([
+                        'datosBasico' => function ($query) { 
+                            $query->where('cedula', $this->cedula ); 
+                    }])
+                    ->first();
+
+        if (sizeof($alumno)) {
+            return response()->json(['alumno' => $alumno, 'code' => 1]);
+        }else{
+            return response()->json(['alumno' => null, 'code' => 0]);
+        }
+    }
+
 }

@@ -18,10 +18,15 @@ class Padre extends Model
 	public static function buscar($cedula='')
 	{
 		
-	    return DatosBasico::where('cedula', $cedula)
+	    $padre = DatosBasico::where('cedula', $cedula)
 			->with('padre')
-			->first()
-			->padre;
+			->first();
+
+		if ($padre) {
+			return $padre->padre;
+		} else {
+			return null;
+		}
 
 		/*
 		return DatosBasico::where('cedula', $cedula)

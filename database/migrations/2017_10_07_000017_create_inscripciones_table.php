@@ -40,8 +40,13 @@ class CreateInscripcionesTable extends Migration
             $table->dateTime('fecha_validacion');
             $table->integer('alumno_id')->unsigned();
             $table->integer('usuario_id')->unsigned();
-            $table->integer('docente_periodo_docente_id')->unsigned();
-            $table->integer('docente_periodo_periodo_id')->unsigned();
+            $table->integer('docente_periodo_id')->unsigned();
+            // $table->integer('docente_periodo_docente_id')->unsigned();
+            // $table->integer('docente_periodo_periodo_id')->unsigned();
+
+
+
+
 
             $table->foreign('alumno_id', 'fk_inscripciones_alumnos1_idx')
                 ->references('id')->on('alumnos')

@@ -27,11 +27,14 @@
                     <tbody>
                         @foreach($inscripciones as $inscripcion)
 			            <tr>
-			                <td>{{ $inscripcion->alumno->representante->nombre .' '.$inscripcion->alumno->representante->apellido }}</td>
+			                <td>
+                                {{ $inscripcion->alumno->representante->nombre .' '.$inscripcion->alumno->representante->apellido }}
+                            </td>
 			                <td>{{ $inscripcion->alumno->representante->cedula }}</td>
 			                <td>{{ $inscripcion->alumno->nombre .' '. $inscripcion->alumno->nombre }}</td>
 			                <td>{{ $inscripcion->estatus }}</td>
 			                <td>{{ $inscripcion->fecha }}</td>
+                            <td></td>
                         </tr>
                         @endforeach                        
                     </tbody>

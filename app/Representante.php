@@ -17,10 +17,18 @@ class Representante extends Model
 	public static function buscar($cedula='')
 	{
 		
-	    return DatosBasico::where('cedula', $cedula)
+	    
+	    $representante = DatosBasico::where('cedula', $cedula)
 			->with('representante')
-			->first()
-			->representante;
+			->first();
+
+		if ($representante) {
+			return $representante->representante;
+		} else{
+			return null;
+		}
+
+
 		
 		/*
 		return DatosBasico::where('cedula', $cedula)
