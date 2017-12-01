@@ -23,7 +23,7 @@ class UpdateUsuarioRequest extends CreateUsuarioRequest
      */
     public function rules()
     {
-        $this->reglas['cedula'] = "required|unique:usuarios,cedula,{$this->usuario->id},id";
+        $this->reglas['cedula'] = "required|unique:datos_basicos,cedula,{$this->usuario->id},id";
         $this->reglas['email']  = "required|unique:usuarios,email,{$this->usuario->id},id";
         $this->reglas['password'] = $this->password ? 'required|string|min:6|confirmed' : '';
 
