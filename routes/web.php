@@ -95,6 +95,8 @@ Route::group(['middleware' => ['auth', 'bindings']], function (){
 	
 	// 
 	Route::resource('alumno', 'AlumnoController');
+	Route::name('alumno.buscar')->get('alumno/{cedula}/buscar', 'AlumnoController@buscar');
+
 
 	// 
 	Route::resource('representante', 'RepresentanteController');

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Alumno;
+use App\DatosBasico;
 use App\Inscripcion;
+use App\Representante;
 use Illuminate\Http\Request;
 
 class InscripcionController extends Controller
@@ -37,7 +40,16 @@ class InscripcionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            echo Auth::user()->id;
+            echo "<br><br>";
+            dd($request);
+        } catch (Exception $e) {
+            
+        }
+
+        return redirect()->route('alumno.index');
+
     }
 
     /**
@@ -71,7 +83,7 @@ class InscripcionController extends Controller
      */
     public function update(Request $request, Inscripcion $inscripcion)
     {
-        //
+        return redirect()->route('alumno.index');
     }
 
     /**

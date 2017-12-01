@@ -16,6 +16,10 @@ use DB;
 // cambiar el attr embrazo_unico que esta en la migracion de antecedentes medicos
 class AlumnoController extends Controller
 {
+
+    private $cedula = '';
+
+
     /**
      * Display a listing of the resource.
      *
@@ -142,7 +146,21 @@ class AlumnoController extends Controller
      */
     public function update(Request $request, Alumno $alumno)
     {
-        //
+        try{
+            DB::beginTransaction();
+                $alumno->update(
+                    $request->only('alumno')['alumno']
+                );
+            DB::commit();
+
+            session()->flash('msg_info', "El alumno '$alumno->nombre' '$alumno->apellido' ha sido actualizado.");
+        } catch (Exception $e) {
+            DB::rollback();
+
+            session()->flash('msg_danger', $e->getMessage());
+        }
+
+        return redirect()->route('alumno.index');
     }
 
     /**
@@ -153,6 +171,37 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
-        //
+        try {
+            $alumno->delete();
+
+            session()->flash('msg_danger', "El alumno '$alumno->nombre' '$alumno->apellido' ha sido eliminado.");
+        } catch (Exception $e) {
+            session()->flash('msg_danger', $e->getMessage());
+        }
+
+        return redirect()->route('alumno.index');
     }
+
+    public function buscar($cedula)
+    {
+
+        $this->cedula = $cedula;
+
+        $alumno = Alumno::with([
+                        'representante' => function($query){ 
+                            $query->with('datosBasico'); 
+                    }])
+                    ->with([
+                        'datosBasico' => function ($query) { 
+                            $query->where('cedula', $this->cedula ); 
+                    }])
+                    ->first();
+
+        if (sizeof($alumno)) {
+            return response()->json(['alumno' => $alumno, 'code' => 1]);
+        }else{
+            return response()->json(['alumno' => null, 'code' => 0]);
+        }
+    }
+
 }
