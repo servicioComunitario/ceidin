@@ -5,6 +5,8 @@
     <link href="{{ asset('css/iCheck/skins/flat/green.css') }}" rel="stylesheet">
 	<!-- DateRangerPicker -->
 	<link href="{{ asset('css/datepicker/daterangepicker.css') }}" rel="stylesheet">
+	{{-- select 2 --}}
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
 @endsection
 
 @section('contenido')
@@ -22,7 +24,9 @@
     <!-- DateRangerPicker -->
 	<script src="{{ asset('js/datepicker/moment.min.js') }}"></script>
 	<script src="{{ asset('js/datepicker/daterangepicker.js') }}""></script>
+	{{-- select 2 --}}
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
 	<!-- Edicion -->
-	{{-- <script src="{{ asset('js/padre/edit.js') }}"></script> --}}
+	<script src="{{ asset('js/padre/edit.js') }}"></script>
 @stop
 

@@ -21,10 +21,17 @@
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="padre[datos_basico][cedula]">
                             <span class="required">*</span> 
-                            Cedula:
+                            Representantes:
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="padre[datos_basico][cedula]" class="form-control" id="padre_cedula" placeholder="Cedula" aria-describedby="inputSuccess2Status" value="{{ $padre->cedula or old('padre[datos_basico][cedula]') }}">
+                            <select class="js-example-basic-single" style="width: 100%" name="padre[datos_basico][cedula]">
+                                    <option value='0' > Selecciona la persona que deseas agregar como padre </option>
+                                @foreach( $personas as $persona)
+                                    <option value={{ $persona->cedula }} @if( $padre->exists) Selected @endif >
+                                        {{ $persona->nombre.' '.$persona->nombre2.' '.$persona->apellido.' '.$persona->apellido2 }}
+                                    </option>
+                                @endforeach
+                            </select>
 
                             @if ($errors->has('padre[datos_basico][cedula]'))
                                 <span class="text-danger">{{ $errors->first('padre[datos_basico][cedula]') }}</span>
@@ -62,6 +69,20 @@
                             @if ($errors->has('padre[difunto]'))
                                 <br/>
                                 <span class="text-danger">{{ $errors->first('padre[difunto]') }}</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="padre[datos_basico][cedula]">
+                            <span class="required">*</span> 
+                            Cedula:
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" class="form-control padre" id="padre_cedula" placeholder="Cedula" aria-describedby="inputSuccess2Status" readonly="true" value="{{ $padre->cedula or old('padre[datos_basico][cedula]') }}">
+
+                            @if ($errors->has('padre[datos_basico][cedula]'))
+                                <span class="text-danger">{{ $errors->first('padre[datos_basico][cedula]') }}</span>
                             @endif
                         </div>
                     </div>

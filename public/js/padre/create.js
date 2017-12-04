@@ -34,7 +34,9 @@ $(document).ready(function() {
 
 	});
 
-	$('#padre_cedula').blur(function(event) {
+    $('.js-example-basic-single').select2();
+
+    $('.js-example-basic-single').change(function(event) {
 		var cedula= $(this).val();
         var input_padre = $('.padre');
 
@@ -56,6 +58,7 @@ $(document).ready(function() {
 	        }
 
 			input_padre.attr('disabled', 'true');
+			$('#padre_cedula').val(datos_basico.cedula);
 			$('#padre_nombre').val(datos_basico.nombre);
 			$('#padre_apellido').val(datos_basico.apellido);
 			$('#padre_nombre2').val(datos_basico.nombre2);

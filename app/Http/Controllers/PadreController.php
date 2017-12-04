@@ -29,7 +29,13 @@ class PadreController extends Controller
     public function create()
     {
         $padre = new Padre();
-        return view("padre.create")->with('padre', $padre);
+        $personas = DatosBasico::orderBy('nombre')
+                    ->get()
+                    ->reject(function($persona){ 
+                        if($persona->alumno || $persona->padre ) 
+                            return $persona; 
+                    });
+        return view("padre.create")->with(['padre' => $padre, 'personas' => $personas]);
     }
 
     /**
@@ -42,6 +48,7 @@ class PadreController extends Controller
     {
         try{
             DB::beginTransaction();
+
                 $datos_basico = DatosBasico::where('cedula', $request->padre['datos_basico']['cedula'])->first();
 
                 if (!$datos_basico) {
@@ -55,20 +62,6 @@ class PadreController extends Controller
                 $padre->difunto = $request->padre['difunto'];
                 $padre->save();
 
-
-/*
-                // guardando los datos basicos
-                $datos_basico = DatosBasico::create(
-                    $request->datos_basico
-                );
-
-                // guardando el padre
-                $padre = new Padre( $request->padre );
-
-                // relacionando los modelos
-                $padre->datos_basico_id = $datos_basico->id;
-                $padre->save();
-*/
             DB::commit();
             session()->flash('msg_success', "El padre '$padre->nombre' '$padre->apellido' ha sido creado.");
         } catch (Exception $e) {
@@ -99,7 +92,8 @@ class PadreController extends Controller
     public function edit($padre)
     {
         $padre = Padre::find($padre);
-        return view("padre.edit")->with("padre", $padre);
+        $personas = Padre::where('id',$padre->id)->get();
+        return view("padre.edit")->with(['padre' => $padre, 'personas' => $personas]);
     }
 
     /**

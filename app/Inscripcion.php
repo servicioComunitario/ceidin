@@ -41,7 +41,7 @@ class Inscripcion extends Model
     public function docentePeriodo(){
         return $this->belongsTo(DocentePeriodo::class)->withDefault();
     }
-
+/*
     public function periodo() {
         return $this->belongsTo(Periodo::class, 'docente_periodo_periodo_id', 'id');
     }
@@ -49,7 +49,7 @@ class Inscripcion extends Model
     public function docentePeriodo() {
         return $this->belongsTo(DocentePeriodo::class, 'docente_periodo_periodo_id', 'periodo_id');
     }
-
+*/
 
     //public function (){
     //    return $this->belongsTo(DocentePeriodo::class, (uno, la_otra));

@@ -29,7 +29,14 @@ class RepresentanteController extends Controller
     public function create()
     {
         $representante = new Representante();
-        return view("representante.create")->with('representante', $representante);
+        $personas = DatosBasico::orderBy('nombre')
+                    ->get()
+                    ->reject(function($persona){ 
+                        if($persona->alumno || $persona->representante ) 
+                            return $persona; 
+                    });
+
+        return view("representante.create")->with(['representante' => $representante, 'personas' => $personas]);
     }
 
     /**

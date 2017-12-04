@@ -20,13 +20,21 @@
                     {{ csrf_field() }}
 
                     <br />
+
                     <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12" for="representante[datos_basico][cedula]">
                             <span class="required">*</span> 
-                            Cedula:
+                            Representantes:
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                            <input type="text" name="representante[datos_basico][cedula]" required="true" class="form-control" id="representante_cedula" placeholder="Cedula" aria-describedby="inputSuccess2Status"  value="{{ $representante->cedula or old('representante[datos_basico][cedula]') }}">
+                            <select class="js-example-basic-single" style="width: 100%">
+                                    <option value='0' > Selecciona la persona que deseas agregar como representante </option>
+                                @foreach( $personas as $persona)
+                                    <option value={{ $persona->cedula }}>
+                                        {{ $persona->nombre.' '.$persona->nombre2.' '.$persona->apellido.' '.$persona->apellido2 }} 
+                                    </option>
+                                @endforeach
+                            </select>
 
                             @if ($errors->has('representante[datos_basico][cedula]'))
                                 <span class="text-danger">{{ $errors->first('representante[datos_basico][cedula]') }}</span>
@@ -44,6 +52,20 @@
 
                             @if ($errors->has('representante[parentesco]'))
                                 <span class="text-danger">{{ $errors->first('representante[parentesco]') }}</span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12" for="representante[datos_basico][cedula]">
+                            <span class="required">*</span> 
+                            Cedula:
+                        </label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <input type="text" name="representante[datos_basico][cedula]" required="true" class="form-control representante" id="representante_cedula" placeholder="Cedula" aria-describedby="inputSuccess2Status"  value="{{ $representante->cedula or old('representante[datos_basico][cedula]') }}">
+
+                            @if ($errors->has('representante[datos_basico][cedula]'))
+                                <span class="text-danger">{{ $errors->first('representante[datos_basico][cedula]') }}</span>
                             @endif
                         </div>
                     </div>

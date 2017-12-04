@@ -10,7 +10,6 @@ use App\Usuario;
 use App\DocentePeriodo;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
-use App\DocentePeriodo;
 use PDF;
 use DB;
 
