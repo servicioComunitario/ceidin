@@ -31,7 +31,9 @@
                                     <option value='0' > Selecciona la persona que deseas agregar como representante </option>
                                 @foreach( $personas as $persona)
                                     <option value={{ $persona->cedula }}>
-                                        {{ $persona->nombre.' '.$persona->nombre2.' '.$persona->apellido.' '.$persona->apellido2 }} 
+                                        {{ $persona->nombre.' '.$persona->nombre2.' '.$persona->apellido.' '.$persona->apellido2 }}
+                                        
+                                        ({{ $persona->nacionalidad[0].'-'.$persona->cedula }})
                                     </option>
                                 @endforeach
                             </select>

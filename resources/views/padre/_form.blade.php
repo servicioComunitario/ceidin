@@ -29,6 +29,7 @@
                                 @foreach( $personas as $persona)
                                     <option value={{ $persona->cedula }} @if( $padre->exists) Selected @endif >
                                         {{ $persona->nombre.' '.$persona->nombre2.' '.$persona->apellido.' '.$persona->apellido2 }}
+                                        ({{ $persona->nacionalidad[0].'-'.$persona->cedula }})
                                     </option>
                                 @endforeach
                             </select>
