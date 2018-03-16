@@ -19,7 +19,7 @@
                 </form>
             @endguest
 
-            <a href="#" class="page-scroll btn btn-xl"><i class="fa fa-download"></i> Manual de Ayuda</a>
+            <a href={{ asset('docs/informe.pdf') }} class="page-scroll btn btn-xl" download><i class="fa fa-download"></i> Manual de Ayuda</a>
         </div>
     </div>
 </header>

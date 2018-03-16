@@ -17,7 +17,7 @@
                 <li><a class="page-scroll" href="#filosofia">Filosofía</a></li>
                 <li><a class="page-scroll" href="#resena">Reseña</a></li>
                 <li><a class="page-scroll" href="#ubicanos">Ubícanos</a></li>
-                <li><a href="#">Ayuda</a></li>
+                <li><a href={{ asset('docs/nota-prensa.pdf') }} download>Ayuda</a></li>
                 <li><a href="{{ route('login') }}">Entrar</a></li>
                 
             </ul>

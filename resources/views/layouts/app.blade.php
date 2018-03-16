@@ -67,7 +67,7 @@
                                 {{-- /.Portal --}}
 
                                 {{-- Home --}}
-                                <li>
+                                {{-- <li>
                                     <a>
                                         <i class="fa fa-home fa-fw"></i> 
                                         Home 
@@ -78,7 +78,7 @@
                                         <li><a href="index2.html">Dashboard2</a></li>
                                         <li><a href="index3.html">Dashboard3</a></li>
                                     </ul>
-                                </li>
+                                </li> --}}
                                 {{-- /.Home --}}
 
                                 {{-- Portal --}}
