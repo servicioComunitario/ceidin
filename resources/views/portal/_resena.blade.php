@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="timeline-inverted">
+                    <li>
                         <div class="timeline-image-o">
                             <h4>2005-2006</h4>
                         </div>
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="timeline-inverted">
+                    <li>
                         <div class="timeline-image">
                             <h4>Se Parte
                             <br>De Nuestra
