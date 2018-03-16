@@ -34,7 +34,7 @@
                     </div>
                 @endif
                 <form class="form-horizontal" role="form" method="POST" action="{{ url('/password/reset') }}">
-                    <h1>Reset Password</h1>
+                    <h1>Restablecer Contraseña</h1>
                     {{ csrf_field() }}
                     
                     <input type="hidden" name="token" value="{{ $token }}">
@@ -72,12 +72,12 @@
                     <div class="form-group">
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-default btn-block">
-                                Reset my password
+                                Restablecer mi Contraseña
                             </button>
                         </div>
                     </div>
                     <div class="separator">
-                        <p class="change_link">You have a password ?
+                        <p class="change_link">¿Tienes una contraseña?
                             <a href="{{ url('/login') }}" class="to_register"> Log in </a>
                         </p>
                         
@@ -85,8 +85,8 @@
                         <br />
                         
                         <div>
-                            <h1><i class="fa fa-paw"></i> Gentelella Alela!</h1>
-                            <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                            <a href="/"><h1><i class="fa fa-graduation-cap"></i> Ceidin</h1></a>
+                            <p>©2017 Ceidin.</p>
                         </div>
                     </div>
                 </form>

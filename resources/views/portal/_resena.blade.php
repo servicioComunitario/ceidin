@@ -64,7 +64,7 @@
                             </div>
                             <div class="timeline-body text-justify">
                                 <p class="text-muted">
-                                    En el año 2001 la institución recibe la notificación oficial de que pasaría a funcionar como Preescolar Bolivariano y pasa a denominarse Centro de educación Inicial “Desarrollo Integral del Niño”, aunque por razones de espacio físico y falta de dotación para atender un Turno Integral con 520 niños y niñas, las funciones como tal no han sido cumplidas.
+                                    En el año 2001 la institución recibe la notificación oficial de que pasaría a funcionar como Preescolar Bolivariano y pasa a denominarse Centro de Educación Inicial “Desarrollo Integral del Niño”, aunque por razones de espacio físico y falta de dotación para atender un Turno Integral con 520 niños y niñas, las funciones como tal no han sido cumplidas.
                                 </p>
                             </div>
                         </div>
