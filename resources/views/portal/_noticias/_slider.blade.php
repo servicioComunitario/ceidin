@@ -2,7 +2,7 @@
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Items -->
         <div class="carousel-inner">
-            @foreach ($noticias as $noticia)
+            @foreach ($noticiasSlider as $noticia)
                 @if ($noticia->principal)
                     <div class="item {{ !$loop->index ? 'active': '' }}">
                         <img src="{{ $noticia->ruta_imagen }}" alt="{{ $noticia->titulo }}">

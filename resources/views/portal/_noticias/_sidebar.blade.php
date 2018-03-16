@@ -1,5 +1,5 @@
 <div class="col-xs-12 col-md-4 panel-noticias-anteriores">
-    @foreach ($noticias->sortByDesc('fecha') as $noticia)
+    @foreach ($noticiasSidebar as $noticia)
         <div class="carta-noticia" >
             <div class="noticia-item" onclick="getNoticia({{ $noticia->id }}, false)">
                 <div class="noticia-link">

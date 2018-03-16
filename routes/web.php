@@ -1,6 +1,6 @@
 <?php
 /**************************** Rutas Privadas **********************************/
-Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
+// Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
  	
  	// EDITAR PORTAL WEB
 	Route::resource('noticia', 'NoticiaController', ['except' => ['show']]);
@@ -156,7 +156,7 @@ Route::group(['middleware' => ['auth','acceso', 'bindings']], function (){
             'as' => 'admin.inscripcion.pdf',
             'uses' => 'InscripcionController@inscripcionPdf'));
 
-});
+// });
 /*************************** Rutas Protegidas *********************************/
 /*----------------------------------------------------------------------------*/
 /**************************** Rutas Públicas **********************************/

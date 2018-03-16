@@ -7,11 +7,11 @@
         </div>
         <div class="row">
             <!-- Slider -->
-            @include('portal._noticias._slider')
+            @include('portal._noticias._slider', ['noticiasSlider'  => $noticiasSlider])
             <!-- /.Slider -->
 
             <!-- Sidebar -->
-            @include('portal._noticias._sidebar')
+            @include('portal._noticias._sidebar', ['noticiasSidebar'  => $noticiasSidebar])
             <!-- /.Sidebar -->
         </div>
     </div>
