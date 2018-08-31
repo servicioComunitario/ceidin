@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="es-VE">
 
 <head>
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -7,7 +7,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Sitio Web de Ceidin.">
+    <meta name="robots", content="index,follow">
+    <title>{{ config('app.name', 'Laravel') }} | Centro de Educación Inicial Desarrollo Integral del Niño</title>
+    <meta name="DC.title" content="{{ config('app.name', 'Laravel') }} | Centro de Educación Inicial Desarrollo Integral del Niño" />
+    <meta name="description" content='El Centro de Educación Inicial Desarrollo Integral del Niño (CEIDIN) funciona desde 1979, cuando se separa del Centro Preescolar “Año Internacional del Niño”, iniciando actividades con 16 secciones distribuidas en dos turnos bajo la metodología de "Aula Abierta", este funcionaba en dos módulos ubicados; uno en la avenida tres, sector I y el otro en la calle 18 sector II Unare II de Puerto Ordaz, Estado Bolívar.'>
+    <meta name="keywords", content="ceidin, preescolar, escuela, educación, uneg, puerto ordaz, servicio comunitario, unare">
 
     <meta name="twitter:card" value="summary">
 
@@ -15,9 +19,8 @@
     <meta property="og:type" content="website" />
     <meta property="og:url" content="{{ url('/') }}" />
     <meta property="og:image" content="{{ asset('images/header-xs.jpg') }}" />
-    <meta property="og:description" content="Sitio Web de Ceidin." />
+    <meta property="og:description" content="Sitio Web del Centro de Educación Inicial Desarrollo Integral del Niño (CEIDIN) Puerto Ordaz, Estado Bolívar" />
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
