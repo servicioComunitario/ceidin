@@ -16,7 +16,7 @@
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
                         <li>
-                            <a href="http://facebook.com/beatriz.santoya" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="//facebook.com/beatriz.santoya" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
                         </li>
@@ -32,7 +32,7 @@
                         <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li>
                         <li>
-                            <a href="http://facebook.com/dey.guzman.75" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="//facebook.com/dey.guzman.75" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li><a href="#"><i class="fa fa-linkedin"></i></a>
                         </li>
@@ -48,12 +48,12 @@
                     <h4>Jesús Torres</h4>
                     <p class="text-muted">Cargo/Rol</p>
                     <ul class="list-inline social-buttons">
-                        <li><a href="http://github.com/jjtc07" target="_blank"><i class="fa fa-github"></i></a>
+                        <li><a href="//github.com/jjtc07" target="_blank"><i class="fa fa-github"></i></a>
                         </li>
                         <li>
-                            <a href="http://facebook.com/jjtc07" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="//facebook.com/jjtc07" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
-                        <li><a href="http://linkedin.com/in/jes%C3%BAs-torres-6b9516142" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        <li><a href="//linkedin.com/in/jes%C3%BAs-torres-6b9516142" target="_blank"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -65,12 +65,12 @@
                     <p class="text-muted">Cargo/Rol</p>
                     <ul class="list-inline social-buttons">
                         <li>
-                            <a href="http://github.com/Roiner994" target="_blank"><i class="fa fa-github"></i></a>
+                            <a href="//github.com/Roiner994" target="_blank"><i class="fa fa-github"></i></a>
                         </li>
                         <li>
-                            <a href="http://facebook.com/Roiner.L" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="//facebook.com/Roiner.L" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
-                        <li><a href="http://linkedin.com/in/roiner-hernandez-a6314894" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        <li><a href="//linkedin.com/in/roiner-hernandez-a6314894" target="_blank"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -82,13 +82,13 @@
                     <p class="text-muted">Cargo/Rol</p>
                     <ul class="list-inline social-buttons">
                         <li>
-                            <a href="http://github.com/stalinscj" target="_blank"><i class="fa fa-github"></i></a>
+                            <a href="//github.com/stalinscj" target="_blank"><i class="fa fa-github"></i></a>
                         </li>
                         <li>
-                            <a href="http://facebook.com/stalinscj" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="//facebook.com/stalinscj" target="_blank"><i class="fa fa-facebook"></i></a>
                         </li>
                         <li>
-                            <a href="http://linkedin.com/in/stalinscj" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            <a href="//linkedin.com/in/stalinscj" target="_blank"><i class="fa fa-linkedin"></i></a>
                         </li>
                     </ul>
                 </div>
